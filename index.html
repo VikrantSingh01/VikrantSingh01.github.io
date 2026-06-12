@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vikrant Singh - Engineering Leader | AI & Platforms</title>
+<meta name="description" content="Vikrant Singh - Engineering leader with 18+ years building consumer and enterprise products at scale across web, mobile, desktop, and backend. AI, Conversational platforms, and developer ecosystems." />
+<meta name="author" content="Vikrant Singh" />
+<!-- Open Graph -->
+<meta property="og:title" content="Vikrant Singh - Engineering Leader | AI & Platforms" />
+<meta property="og:description" content="18+ years building products at scale. AI, conversational platforms, mobile, and developer ecosystems." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://vikrantsingh01.github.io" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #1f2d3d;
+    --navy-2: #2c3e50;
+    --accent: #2f6fed;
+    --accent-soft: #e8f0fe;
+    --text: #1f2733;
+    --muted: #5b6776;
+    --line: #e6e9ee;
+    --bg: #ffffff;
+    --bg-soft: #f7f9fc;
+    --radius: 14px;
+    --shadow: 0 1px 2px rgba(16,24,40,.04), 0 8px 24px rgba(16,24,40,.06);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 64px 0; border-top: 1px solid var(--line); }
+  h2 {
+    font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--accent); font-weight: 700; margin-bottom: 28px;
+  }
+  h3 { font-size: 19px; font-weight: 700; color: var(--navy-2); }
+  p { color: var(--muted); }
+
+  /* ---------- Nav ---------- */
+  header.nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255,255,255,.85); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .brand { font-weight: 800; color: var(--navy-2); font-size: 16px; letter-spacing: .3px; }
+  .nav-links { display: flex; gap: 26px; }
+  .nav-links a { color: var(--muted); font-size: 14px; font-weight: 500; }
+  .nav-links a:hover { color: var(--accent); text-decoration: none; }
+  @media (max-width: 720px) { .nav-links { display: none; } }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: 84px 0 64px; border-top: none; }
+  .eyebrow {
+    display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--accent); background: var(--accent-soft);
+    padding: 6px 12px; border-radius: 999px; margin-bottom: 22px;
+  }
+  .hero h1 { font-size: 44px; line-height: 1.12; font-weight: 800; color: var(--navy); letter-spacing: -.5px; }
+  .hero h1 span { color: var(--accent); }
+  .hero .tagline { font-size: 19px; color: var(--muted); margin-top: 20px; max-width: 760px; }
+  .hero .meta { margin-top: 18px; font-size: 15px; color: var(--muted); }
+  .cta { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 11px 18px; border-radius: 10px; font-weight: 600; font-size: 14px;
+    border: 1px solid var(--line); background: #fff; color: var(--navy-2);
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+  .btn:hover { text-decoration: none; transform: translateY(-1px); box-shadow: var(--shadow); }
+  .btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+  @media (max-width: 720px) { .hero h1 { font-size: 32px; } .hero .tagline { font-size: 17px; } }
+
+  /* ---------- Stats ---------- */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 8px; }
+  .stat { background: var(--bg-soft); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
+  .stat .num { font-size: 30px; font-weight: 800; color: var(--navy); letter-spacing: -.5px; }
+  .stat .lbl { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  @media (max-width: 720px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+
+  /* ---------- Experience ---------- */
+  .role { display: grid; grid-template-columns: 180px 1fr; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+  .role:last-child { border-bottom: none; }
+  .role .co { font-weight: 700; color: var(--navy-2); font-size: 16px; }
+  .role .when { font-size: 13px; color: var(--muted); margin-top: 2px; }
+  .role .title { font-weight: 600; color: var(--text); margin-bottom: 8px; }
+  .role ul { list-style: none; }
+  .role li { position: relative; padding-left: 18px; margin-bottom: 7px; color: var(--muted); font-size: 15px; }
+  .role li::before { content: ""; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  @media (max-width: 720px) { .role { grid-template-columns: 1fr; gap: 6px; } }
+
+  /* ---------- Projects ---------- */
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
+  .card {
+    background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 22px; transition: transform .12s ease, box-shadow .12s ease;
+    display: flex; flex-direction: column;
+  }
+  .card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+  .card .top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+  .card h3 { font-size: 17px; }
+  .badge { font-size: 12px; font-weight: 600; color: var(--accent); background: var(--accent-soft); padding: 4px 9px; border-radius: 999px; white-space: nowrap; }
+  .card p { font-size: 14.5px; flex: 1; }
+  .card .links { margin-top: 14px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .card .links a { font-size: 13.5px; font-weight: 600; }
+  .tag { display: inline-block; font-size: 11.5px; color: var(--muted); background: var(--bg-soft); border: 1px solid var(--line); padding: 3px 9px; border-radius: 6px; margin: 3px 4px 0 0; }
+
+  /* ---------- Two col lists ---------- */
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 40px; }
+  @media (max-width: 720px) { .cols { grid-template-columns: 1fr; } }
+  .item { padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .item .h { font-weight: 600; color: var(--navy-2); font-size: 15px; }
+  .item .s { font-size: 14px; color: var(--muted); margin-top: 2px; }
+
+  /* ---------- Skills ---------- */
+  .skillrow { display: grid; grid-template-columns: 150px 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .skillrow:last-child { border-bottom: none; }
+  .skillrow .k { font-weight: 600; color: var(--navy-2); font-size: 14px; }
+  .skillrow .v { color: var(--muted); font-size: 14px; }
+  @media (max-width: 720px) { .skillrow { grid-template-columns: 1fr; gap: 4px; } }
+
+  /* ---------- Footer ---------- */
+  footer { padding: 56px 0; border-top: 1px solid var(--line); background: var(--bg-soft); }
+  footer .links { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 16px; }
+  footer .links a { font-weight: 600; font-size: 15px; }
+  footer .fine { margin-top: 26px; font-size: 13px; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <div class="brand">Vikrant Singh</div>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#journey">Journey</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#recognition">Recognition</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- HERO -->
+  <section class="hero" id="about">
+    <span class="eyebrow">Engineering Leader - AI & Platforms</span>
+    <h1>Building consumer and enterprise products that reach <span>hundreds of millions</span> of users.</h1>
+    <p class="tagline">
+      Engineering leader with 18+ years across web, mobile (iOS / Android), desktop, and backend - with 10+ years
+      leading teams. I currently lead conversational AI and platform engineering at Microsoft Teams, shipping
+      AI-powered experiences (Copilot, Agents, Adaptive Cards) across every client surface. I stay hands-on:
+      architecting streaming AI UX, cross-client schema contracts, and zero-to-one developer platforms.
+    </p>
+    <p class="meta">Redmond, WA, USA &nbsp;&middot;&nbsp; M.S. Applied AI (in progress) &nbsp;&middot;&nbsp; 3 patents filed</p>
+    <div class="cta">
+      <a class="btn primary" href="https://linkedin.com/in/msg-vikrant" target="_blank" rel="noopener">Connect on LinkedIn</a>
+      <a class="btn" href="https://github.com/VikrantSingh01" target="_blank" rel="noopener">View GitHub</a>
+      <a class="btn" href="https://singhvikrant.substack.com" target="_blank" rel="noopener">Read the blog</a>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section id="impact">
+    <h2>Impact at a glance</h2>
+    <div class="stats">
+      <div class="stat"><div class="num">18+ yrs</div><div class="lbl">Building at scale</div></div>
+      <div class="stat"><div class="num">0&rarr;60M</div><div class="lbl">MAU - Teams dev platform (mobile)</div></div>
+      <div class="stat"><div class="num">10+ yrs</div><div class="lbl">Engineering leadership</div></div>
+      <div class="stat"><div class="num">3</div><div class="lbl">Patents filed (AI / platforms)</div></div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section id="journey">
+    <h2>My journey</h2>
+    <div style="max-width:820px;">
+      <p style="font-size:16px;color:var(--text);margin-bottom:16px;">
+        <strong>I started where the hardware met the software.</strong> At Cisco in Bangalore, I cut my teeth on
+        embedded video middleware - set-top boxes, real-time streaming, low-latency DVR, and second-screen companion
+        apps. Working across driver teams in the US, Germany, and Canada taught me how large systems actually ship,
+        and I grew from an engineer fixing decoder bugs into a tech lead trusted with quality on a 20M-user product.
+      </p>
+      <p style="font-size:16px;color:var(--text);margin-bottom:16px;">
+        <strong>Then I learned to build platforms, not just features.</strong> At Oracle I took CX Cloud Mobile from
+        zero to ~30M enterprise users - but the work I'm proudest of was invisible to end users: a pluggable
+        architecture, an expression engine, and a heuristic code-generation engine that let entire vertical teams ship
+        ~3x faster without touching the platform internals. That's also where I moved from principal engineer into
+        management, and discovered I could multiply impact through people, not just code.
+      </p>
+      <p style="font-size:16px;color:var(--text);margin-bottom:16px;">
+        <strong>At Microsoft, I got to do zero-to-one twice.</strong> First I built the Teams Developer Platform from
+        scratch - SSO, tabs, bots, message extensions, meeting extensibility - bootstrapping a small team and growing
+        the mobile platform to ~60M monthly active users. Then, as the AI wave hit, I pivoted the same playbook toward
+        conversational AI: shipping Copilot and Agent experiences across web, mobile, and desktop, architecting
+        streaming AI UX and Adaptive Cards at scale, and prototyping the multi-agent patterns that shape where the
+        product is going next.
+      </p>
+      <p style="font-size:16px;color:var(--text);">
+        <strong>The throughline:</strong> I stay deeply technical while leading at scale, I love the ambiguity of the
+        first version of something, and I keep learning in public - currently an M.S. in Applied AI, three patents
+        filed, and a stream of open-source tools for the developer and AI communities. The next chapter I'm looking
+        for is one where that combination - builder instincts plus leadership reach - matters most.
+      </p>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <h2>Experience</h2>
+
+    <div class="role">
+      <div>
+        <div class="co">Microsoft</div>
+        <div class="when">2019 - Present</div>
+      </div>
+      <div>
+        <div class="title">Director of Engineering / Principal Engineering Manager - Teams Conversational AI &amp; Platform</div>
+        <ul>
+          <li>Lead engineering for conversational and AI-powered experiences across Teams' web, iOS, Android, desktop, and backend surfaces.</li>
+          <li>Shipped M365 Copilot integration and Agent experiences across all client surfaces, meeting Microsoft Build '23, '24, and '25 announcement milestones.</li>
+          <li>Architected Chain-of-Thought API design and streaming AI UX across mobile and desktop - schema contracts, backward compatibility, and parity.</li>
+          <li>Own Adaptive Cards streaming, rendering, and schema evolution across all clients (Fluent v9 migration, citations, native optimization).</li>
+          <li>Earlier (2019-2022): built the Teams Developer Platform from zero - SSO, tabs, bots, message extensions, meeting extensibility - growing mobile platform to ~60M MAU.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="role">
+      <div>
+        <div class="co">Oracle</div>
+        <div class="when">2014 - 2019</div>
+      </div>
+      <div>
+        <div class="title">Principal Engineer &rarr; Sr. Development Manager - Oracle CX Cloud</div>
+        <ul>
+          <li>Built Oracle CX Cloud Mobile from zero to ~30M enterprise users across iOS, Android, React Native, and Web.</li>
+          <li>Designed an extensible platform with pluggable modules and a heuristic code-generation engine that let vertical teams ship ~3x faster.</li>
+          <li>Built an expression engine and client-side scripting engine for dynamic, customer-extensible UI.</li>
+          <li>Architected enterprise SSO &amp; identity (SAML, JWT, client certificates); led a team of 10+ engineers end-to-end.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="role">
+      <div>
+        <div class="co">Cisco</div>
+        <div class="when">2007 - 2014</div>
+      </div>
+      <div>
+        <div class="title">Software Engineer &rarr; Tech Lead</div>
+        <ul>
+          <li>Led Cisco Connect (web + mobile, J2EE backend, ~20M users) and Videoscape middleware SDK for second-screen companion devices.</li>
+          <li>Designed real-time streaming, recording, and low-latency DVR; built middleware SDKs for embedded platforms.</li>
+          <li>Designed authentication / authorization modules (OAuth 2.0, SAML) for video collaboration platforms.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Open-source &amp; side projects</h2>
+    <div class="grid">
+
+      <div class="card">
+        <div class="top"><h3>Adaptive Cards MCP</h3><span class="badge">&#9733; 27 - 5 forks</span></div>
+        <p>MCP server giving AI assistants deterministic tools to generate, validate, and optimize Adaptive Cards for Teams, Outlook, Copilot, and ChatGPT. Lifts LLM card correctness from ~55% to 95%+. Published to npm and listed in the MCP Registry.</p>
+        <div>
+          <span class="tag">TypeScript</span><span class="tag">MCP SDK</span><span class="tag">924 tests</span>
+        </div>
+        <div class="links">
+          <a href="https://github.com/VikrantSingh01/adaptive-cards-mcp" target="_blank" rel="noopener">Repo &rarr;</a>
+          <a href="https://www.npmjs.com/package/adaptive-cards-mcp" target="_blank" rel="noopener">npm &rarr;</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="top"><h3>PushForge</h3><span class="badge">Swift - macOS</span></div>
+        <p>Zero-config push notification playground for iOS Simulator, Android Emulator, and macOS. 37 bundled templates (13 for AI-agent patterns), real-time APNs byte counter, and payload/platform mismatch detection. ~2,600 lines of native Swift.</p>
+        <div>
+          <span class="tag">Swift</span><span class="tag">APNs / FCM</span><span class="tag">Native macOS</span>
+        </div>
+        <div class="links">
+          <a href="https://github.com/VikrantSingh01/PushForge" target="_blank" rel="noopener">Repo &rarr;</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="top"><h3>AdaptiveCards-Mobile</h3><span class="badge">Swift + Kotlin</span></div>
+        <p>Cross-platform Adaptive Cards UI SDK for iOS (SwiftUI) and Android (Jetpack Compose), designed for mobile integration. Actively maintained open-source SDK.</p>
+        <div>
+          <span class="tag">SwiftUI</span><span class="tag">Jetpack Compose</span>
+        </div>
+        <div class="links">
+          <a href="https://github.com/VikrantSingh01/AdaptiveCards-Mobile" target="_blank" rel="noopener">Repo &rarr;</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="top"><h3>OpenClaw</h3><span class="badge">TypeScript</span></div>
+        <p>"Any OS, Any Platform" local-first personal AI assistant with a plugin architecture. Companion repos: <code>openclaw-adaptive-cards</code> (native structured-UI plugin) and markdown agent playbooks for engineering-management workflows.</p>
+        <div>
+          <span class="tag">Local-first AI</span><span class="tag">Plugins</span>
+        </div>
+        <div class="links">
+          <a href="https://github.com/VikrantSingh01/openclaw" target="_blank" rel="noopener">Repo &rarr;</a>
+          <a href="https://github.com/VikrantSingh01/openclaw-adaptive-cards" target="_blank" rel="noopener">Plugin &rarr;</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="top"><h3>Adaptive Cards IDE &amp; browser tooling</h3><span class="badge">Dev tools</span></div>
+        <p>A suite of authoring tools: a VS Code extension with embedded designer and device preview, a Chrome/Edge AI panel for the Adaptive Cards Designer, and a Playwright-based rendering snapshot tool.</p>
+        <div>
+          <span class="tag">VS Code</span><span class="tag">Browser ext</span><span class="tag">Playwright</span>
+        </div>
+        <div class="links">
+          <a href="https://github.com/VikrantSingh01/adaptive-cards-ai-vscode" target="_blank" rel="noopener">VS Code &rarr;</a>
+          <a href="https://github.com/VikrantSingh01/adaptive-cards-ai-designer" target="_blank" rel="noopener">Designer &rarr;</a>
+          <a href="https://github.com/VikrantSingh01/adaptive-card-preview" target="_blank" rel="noopener">Preview &rarr;</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="top"><h3>voice-trainer</h3><span class="badge">Azure AI</span></div>
+        <p>Open-source Teams app for pronunciation training, built on Azure Speech SDK and Azure OpenAI. A practical example of an AI-powered conversational experience.</p>
+        <div>
+          <span class="tag">Azure Speech</span><span class="tag">Azure OpenAI</span>
+        </div>
+        <div class="links">
+          <a href="https://github.com/VikrantSingh01/voice-trainer" target="_blank" rel="noopener">Repo &rarr;</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PATENTS / AI POCs -->
+  <section id="ai">
+    <h2>AI / ML work &amp; patents filed</h2>
+    <div class="cols">
+      <div class="item">
+        <div class="h">Hybrid Conversational AI Architecture</div>
+        <div class="s">On-device small language model + cloud LLM for low-latency assistant extensibility. Patent filed (details on request).</div>
+      </div>
+      <div class="item">
+        <div class="h">LLM + RAG Code Generator</div>
+        <div class="s">Retrieval-augmented generation pipeline that auto-generates cross-client SDK code. Patent filed (details on request).</div>
+      </div>
+      <div class="item">
+        <div class="h">Multi-Modal Meeting AI</div>
+        <div class="s">Gesture + voice-command ML for frontline scenarios (CoreML / MLKit). Hackathon-winning prototype; patent in process.</div>
+      </div>
+      <div class="item">
+        <div class="h">Multi-agent orchestration prototypes</div>
+        <div class="s">Early prototyping of multi-agent assistant patterns that informed product direction for agentic experiences.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skillrow"><div class="k">Platforms</div><div class="v">iOS, Android, React Native, Web (PWA), Desktop (Windows / Mac), Browser Extensions, Embedded</div></div>
+    <div class="skillrow"><div class="k">Languages</div><div class="v">TypeScript, JavaScript, Swift, Kotlin, Java, Python, C/C++, Objective-C, C#</div></div>
+    <div class="skillrow"><div class="k">Frameworks</div><div class="v">React, React Native, SwiftUI, Jetpack Compose, Adaptive Cards, Fluent UI</div></div>
+    <div class="skillrow"><div class="k">AI / ML</div><div class="v">LLM product development, Copilot/Agent architectures, streaming AI UX, multi-agent orchestration, on-device ML, RAG, vector DBs, TensorFlow, PyTorch</div></div>
+    <div class="skillrow"><div class="k">Backend</div><div class="v">Distributed services, API design, real-time messaging, Graph APIs, SSO/OAuth, SAML, JWT</div></div>
+    <div class="skillrow"><div class="k">Cloud</div><div class="v">Azure (OpenAI, Speech, App Service, Functions), cloud services design</div></div>
+    <div class="skillrow"><div class="k">Leadership</div><div class="v">Team building &amp; mentoring, zero-to-one products, cross-site &amp; cross-functional execution, stakeholder management with execs</div></div>
+  </section>
+
+  <!-- RECOGNITION / EDUCATION -->
+  <section id="recognition">
+    <h2>Recognition, education &amp; speaking</h2>
+    <div class="cols">
+      <div class="item">
+        <div class="h">Education</div>
+        <div class="s">M.S. Applied Artificial Intelligence - University of San Diego (in progress) &middot; M.Tech Computer Science (Network &amp; Cyber Security) - BITS Pilani &middot; B.E. Electronics &amp; Communication with CS - LNCT Bhopal</div>
+      </div>
+      <div class="item">
+        <div class="h">Speaking</div>
+        <div class="s">Invited speaker, TechCohere (Infosys) - "Microsoft Teams Developer Platform, Inside Out" to 100+ solution architects &middot; Cisco WW Developer Conference (Bangkok, Berlin)</div>
+      </div>
+      <div class="item">
+        <div class="h">Microsoft awards</div>
+        <div class="s">Garage Hack Advisor - Impact Excellence '23 &middot; AI/ML Vision Award (Hack '22) &middot; Global Garage 2020 (App Screener) &middot; Manager Excellence '21</div>
+      </div>
+      <div class="item">
+        <div class="h">Earlier awards</div>
+        <div class="s">Oracle "Numero Uno" &amp; 1M/1M Intrapreneurship Winner &middot; Cisco Chairman's Award, Hackathon Winner (IoT) &amp; Spot Awards &middot; Indian Air Force Flight Lieutenant selection (UPSC CDS)</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- CONTACT / FOOTER -->
+<footer id="contact">
+  <div class="wrap">
+    <h2 style="margin-bottom:8px;">Get in touch</h2>
+    <p>Open to senior engineering leadership conversations. The best way to reach me is LinkedIn.</p>
+    <div class="links">
+      <a href="https://linkedin.com/in/msg-vikrant" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/VikrantSingh01" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://singhvikrant.substack.com" target="_blank" rel="noopener">Substack</a>
+      <a href="https://www.npmjs.com/package/adaptive-cards-mcp" target="_blank" rel="noopener">npm</a>
+    </div>
+    <p class="fine">&copy; <span id="yr">2026</span> Vikrant Singh. Built and hosted on GitHub Pages.</p>
+  </div>
+</footer>
+
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
