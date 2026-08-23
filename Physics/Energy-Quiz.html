@@ -1,0 +1,1134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Grade 7 Physics | Energy Comprehensive Quiz</title>
+  <style>
+    :root {
+      --ink: #17211d;
+      --muted: #596660;
+      --paper: #ffffff;
+      --canvas: #f3f5f1;
+      --forest: #1f6048;
+      --forest-dark: #174735;
+      --blue: #286b8d;
+      --amber: #d99a21;
+      --amber-soft: #fff3d8;
+      --line: #d9dfda;
+      --correct: #147a43;
+      --correct-soft: #e8f6ed;
+      --wrong: #b52b2b;
+      --wrong-soft: #fff0ee;
+      --shadow: 0 10px 28px rgba(25, 45, 35, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background-color: var(--canvas);
+      background-image: radial-gradient(circle at 1px 1px, rgba(31, 96, 72, 0.10) 1px, transparent 0);
+      background-size: 22px 22px;
+      font-family: "Avenir Next", Avenir, "Gill Sans", sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
+      letter-spacing: 0;
+    }
+
+    button, input { font: inherit; letter-spacing: 0; }
+    button { cursor: pointer; }
+    button:focus-visible, input:focus-visible, label:has(input:focus-visible) {
+      outline: 3px solid rgba(40, 107, 141, 0.32);
+      outline-offset: 2px;
+    }
+
+    .masthead {
+      color: #fff;
+      background: var(--forest-dark);
+      border-bottom: 6px solid var(--amber);
+    }
+    .masthead-inner {
+      width: min(1080px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 30px 0 27px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 330px;
+      align-items: end;
+      gap: 36px;
+    }
+    .eyebrow {
+      margin: 0 0 8px;
+      color: #bfe6d2;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+    }
+    h1, h2, h3 {
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+      letter-spacing: 0;
+    }
+    h1 {
+      margin: 0;
+      font-size: 38px;
+      line-height: 1.08;
+      font-weight: 700;
+    }
+    .subtitle {
+      margin: 10px 0 0;
+      color: #e1eee7;
+      font-size: 15px;
+      max-width: 680px;
+    }
+    .energy-chain {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      align-items: center;
+      gap: 8px;
+      min-height: 88px;
+    }
+    .energy-node {
+      display: grid;
+      place-items: center;
+      min-height: 66px;
+      padding: 8px;
+      color: var(--ink);
+      background: #fff;
+      border-top: 4px solid var(--amber);
+      text-align: center;
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+    .energy-arrow { color: #f8d88f; font-size: 22px; font-weight: 900; }
+
+    .progress-dock {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.97);
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 4px 14px rgba(25, 45, 35, 0.07);
+    }
+    .progress-inner {
+      width: min(1080px, calc(100% - 32px));
+      min-height: 58px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(150px, 1fr) minmax(240px, 2fr) auto;
+      align-items: center;
+      gap: 22px;
+    }
+    .progress-copy { font-size: 13px; color: var(--muted); }
+    .progress-copy strong { display: block; color: var(--ink); font-size: 14px; }
+    .progress-track {
+      height: 8px;
+      overflow: hidden;
+      background: #e7ebe8;
+      border-radius: 8px;
+    }
+    .progress-fill {
+      width: 0;
+      height: 100%;
+      background: var(--blue);
+      border-radius: inherit;
+      transition: width 180ms ease;
+    }
+    .jump-link {
+      color: var(--forest-dark);
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+    .jump-link:hover { text-decoration: underline; }
+
+    main {
+      width: min(1080px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 30px 0 72px;
+    }
+    .quiz-meta {
+      display: grid;
+      grid-template-columns: 1.2fr repeat(3, auto);
+      align-items: end;
+      gap: 24px;
+      padding: 0 2px 24px;
+      border-bottom: 1px solid #cbd3cd;
+    }
+    .student-field label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .student-field input {
+      width: min(100%, 420px);
+      height: 44px;
+      padding: 0 12px;
+      color: var(--ink);
+      background: #fff;
+      border: 1px solid #aeb9b2;
+      border-radius: 6px;
+    }
+    .meta-stat { min-width: 84px; text-align: right; }
+    .meta-stat strong {
+      display: block;
+      color: var(--forest-dark);
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+      font-size: 25px;
+      line-height: 1;
+    }
+    .meta-stat span { color: var(--muted); font-size: 12px; }
+
+    .chapter-review {
+      margin: 30px 0 0;
+      padding: 0 2px 34px;
+      border-bottom: 1px solid #cbd3cd;
+    }
+    .review-intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: end;
+      gap: 24px;
+    }
+    .review-kicker {
+      margin: 0 0 5px;
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+    .review-intro h2 { margin: 0; font-size: 30px; line-height: 1.15; }
+    .review-intro-copy { max-width: 760px; margin: 7px 0 0; color: var(--muted); font-size: 14px; }
+    .start-quiz-link {
+      display: inline-grid;
+      place-items: center;
+      min-width: 130px;
+      min-height: 42px;
+      padding: 0 17px;
+      color: #fff;
+      background: var(--forest-dark);
+      border: 1px solid var(--forest-dark);
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 850;
+      text-decoration: none;
+    }
+    .start-quiz-link:hover { background: #103c2c; }
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0;
+      margin-top: 24px;
+      background: rgba(255, 255, 255, 0.72);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .review-topic { padding: 20px 22px; border-left: 4px solid var(--blue); }
+    .review-topic:nth-child(even) { border-left-color: var(--amber); }
+    .review-topic:nth-child(n+3) { border-top: 1px solid var(--line); }
+    .review-topic h3 { margin: 0 0 8px; color: var(--forest-dark); font-size: 19px; }
+    .review-topic ul { margin: 0; padding-left: 18px; }
+    .review-topic li { margin: 5px 0; color: #35423c; font-size: 13px; }
+    .review-topic strong { color: var(--ink); }
+    .formula-strip {
+      margin-top: 18px;
+      padding: 20px 22px 18px;
+      color: #fff;
+      background: #263b32;
+      border-top: 5px solid var(--amber);
+    }
+    .formula-strip h3 { margin: 0; font-size: 21px; }
+    .formula-note { margin: 3px 0 0; color: #cedbd4; font-size: 12px; }
+    .formula-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      margin-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .formula-item { min-height: 102px; padding: 14px 13px; border-left: 1px solid rgba(255, 255, 255, 0.2); }
+    .formula-item:first-child { border-left: 0; }
+    .formula-label { color: #bfe6d2; font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.8px; }
+    .formula-equation {
+      display: block;
+      margin: 5px 0 4px;
+      color: #fff;
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+      font-size: 22px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .formula-detail { color: #dce6e0; font-size: 11px; line-height: 1.35; }
+    .symbol-key { margin: 12px 0 0; color: #dce6e0; font-size: 11px; }
+    .symbol-key strong { color: #fff; }
+
+    .section-block { margin-top: 42px; }
+    .section-heading {
+      display: grid;
+      grid-template-columns: 54px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+    .section-number {
+      display: grid;
+      place-items: center;
+      width: 54px;
+      height: 54px;
+      color: #fff;
+      background: var(--forest);
+      border-radius: 50%;
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+      font-size: 21px;
+      font-weight: 700;
+    }
+    .section-heading h2 { margin: 0; font-size: 26px; line-height: 1.15; }
+    .section-heading p { margin: 3px 0 0; color: var(--muted); font-size: 13px; }
+    .section-total { color: var(--forest-dark); font-size: 13px; font-weight: 800; }
+
+    .question-card {
+      position: relative;
+      margin: 0 0 14px;
+      padding: 20px 22px 18px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--blue);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      break-inside: avoid;
+    }
+    .question-card.is-correct { border-left-color: var(--correct); }
+    .question-card.is-wrong { border-left-color: var(--wrong); }
+    .question-topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .question-id { color: var(--forest-dark); font-size: 13px; font-weight: 900; }
+    .question-source { color: #6c756f; font-size: 11px; font-weight: 700; }
+    .status-badge {
+      display: none;
+      margin-left: auto;
+      padding: 3px 8px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+    .is-correct .status-badge { display: inline-block; color: var(--correct); background: var(--correct-soft); }
+    .is-wrong .status-badge { display: inline-block; color: var(--wrong); background: var(--wrong-soft); }
+    .question-prompt { margin: 0; font-size: 17px; font-weight: 650; }
+    .question-hint { margin: 7px 0 0; color: var(--muted); font-size: 12px; }
+    .options {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px;
+      margin-top: 15px;
+    }
+    .option {
+      display: grid;
+      grid-template-columns: 22px minmax(0, 1fr);
+      align-items: center;
+      gap: 9px;
+      min-height: 50px;
+      padding: 10px 12px;
+      background: #fbfcfa;
+      border: 1px solid #cfd7d1;
+      border-radius: 6px;
+      transition: border-color 130ms ease, background-color 130ms ease, transform 130ms ease;
+    }
+    .option:hover { border-color: var(--blue); transform: translateY(-1px); }
+    .option:has(input:checked) { border-color: var(--blue); background: #edf6fa; }
+    .option.option-correct { border-color: var(--correct); background: var(--correct-soft); }
+    .option.option-wrong { border-color: var(--wrong); background: var(--wrong-soft); }
+    .option input { width: 17px; height: 17px; margin: 0; accent-color: var(--blue); }
+    .option-text { font-size: 14px; line-height: 1.35; }
+    .numeric-answer {
+      width: min(100%, 330px);
+      height: 46px;
+      margin-top: 15px;
+      padding: 0 12px;
+      color: var(--ink);
+      background: #fbfcfa;
+      border: 1px solid #aeb9b2;
+      border-radius: 6px;
+    }
+    .numeric-answer.answer-correct { border-color: var(--correct); background: var(--correct-soft); }
+    .numeric-answer.answer-wrong { border-color: var(--wrong); background: var(--wrong-soft); }
+    .question-feedback {
+      display: none;
+      margin-top: 14px;
+      padding: 11px 13px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+    .is-correct .question-feedback { display: block; color: #0d5b31; background: var(--correct-soft); }
+    .is-wrong .question-feedback { display: block; color: #852121; background: var(--wrong-soft); }
+    .question-feedback strong { display: block; margin-bottom: 2px; }
+
+    .concept-visual {
+      margin: 14px 0 2px;
+      padding: 12px;
+      overflow-x: auto;
+      background: #f7faf7;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+    }
+    .concept-visual svg { display: block; width: 100%; min-width: 520px; height: auto; max-height: 190px; }
+
+    .submit-zone {
+      margin-top: 34px;
+      padding: 28px 0;
+      text-align: center;
+      border-top: 1px solid #cbd3cd;
+      border-bottom: 1px solid #cbd3cd;
+    }
+    .submit-zone p { margin: 0 0 14px; color: var(--muted); font-size: 13px; }
+    .primary-button, .secondary-button, .filter-button {
+      min-height: 44px;
+      border-radius: 6px;
+      font-weight: 850;
+    }
+    .primary-button {
+      min-width: 210px;
+      padding: 0 24px;
+      color: #fff;
+      background: var(--forest-dark);
+      border: 1px solid var(--forest-dark);
+      box-shadow: 0 7px 18px rgba(23, 71, 53, 0.2);
+    }
+    .primary-button:hover { background: #103c2c; }
+    .secondary-button {
+      padding: 0 17px;
+      color: var(--forest-dark);
+      background: #fff;
+      border: 1px solid #9caaa1;
+    }
+    .secondary-button:hover { border-color: var(--forest-dark); }
+
+    [hidden] { display: none !important; }
+    .results {
+      margin-top: 52px;
+      padding-top: 10px;
+      scroll-margin-top: 76px;
+    }
+    .results-header {
+      display: grid;
+      grid-template-columns: 170px minmax(0, 1fr);
+      align-items: center;
+      gap: 28px;
+      padding: 28px;
+      color: #fff;
+      background: var(--forest-dark);
+      border-bottom: 6px solid var(--amber);
+    }
+    .score-mark {
+      display: grid;
+      place-items: center;
+      width: 142px;
+      height: 142px;
+      background: #fff;
+      color: var(--forest-dark);
+      border: 10px solid #bfe6d2;
+      border-radius: 50%;
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+      font-size: 47px;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .score-mark span { display: block; margin-top: -26px; color: var(--muted); font-family: "Avenir Next", Avenir, sans-serif; font-size: 13px; }
+    .results-header h2 { margin: 0; font-size: 31px; }
+    .results-header p { margin: 8px 0 0; color: #dcebe3; }
+    .student-result { color: #fff !important; font-weight: 800; }
+
+    .result-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--line);
+      border-top: 0;
+      background: #fff;
+    }
+    .result-stat { padding: 18px; text-align: center; border-right: 1px solid var(--line); }
+    .result-stat:last-child { border-right: 0; }
+    .result-stat strong { display: block; font-size: 25px; line-height: 1.1; }
+    .result-stat span { color: var(--muted); font-size: 12px; }
+    .correct-stat strong { color: var(--correct); }
+    .wrong-stat strong { color: var(--wrong); }
+
+    .breakdown { margin-top: 30px; }
+    .breakdown h3, .review-heading h3 { margin: 0; font-size: 23px; }
+    .breakdown-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .breakdown-item {
+      padding: 13px;
+      background: #fff;
+      border-top: 4px solid var(--blue);
+      box-shadow: var(--shadow);
+    }
+    .breakdown-item strong { display: block; font-size: 18px; }
+    .breakdown-item span { display: block; color: var(--muted); font-size: 11px; line-height: 1.35; }
+    .mini-track { height: 5px; margin-top: 9px; overflow: hidden; background: #e7ebe8; border-radius: 5px; }
+    .mini-fill { height: 100%; background: var(--correct); }
+
+    .review-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 38px;
+    }
+    .review-heading p { margin: 3px 0 0; color: var(--muted); font-size: 13px; }
+    .filters {
+      display: inline-flex;
+      padding: 3px;
+      background: #e2e8e3;
+      border-radius: 8px;
+    }
+    .filter-button {
+      min-height: 36px;
+      padding: 0 13px;
+      color: var(--muted);
+      background: transparent;
+      border: 0;
+      font-size: 12px;
+    }
+    .filter-button.active { color: var(--forest-dark); background: #fff; box-shadow: 0 2px 7px rgba(25, 45, 35, 0.1); }
+
+    .review-table-wrap { margin-top: 14px; overflow-x: auto; border: 1px solid var(--line); }
+    .review-table { width: 100%; border-collapse: collapse; background: #fff; font-size: 13px; }
+    .review-table th {
+      padding: 11px 12px;
+      color: #fff;
+      background: #263b32;
+      text-align: left;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+    }
+    .review-table td { padding: 13px 12px; vertical-align: top; border-bottom: 1px solid var(--line); }
+    .review-table tr:last-child td { border-bottom: 0; }
+    .review-table tr[data-status="wrong"] { background: #fffafa; }
+    .review-table tr[data-status="correct"] { background: #fbfefc; }
+    .review-table tr[data-status="unanswered"] { background: #fffdf8; }
+    .review-status { font-weight: 900; }
+    tr[data-status="correct"] .review-status { color: var(--correct); }
+    tr[data-status="wrong"] .review-status { color: var(--wrong); }
+    tr[data-status="unanswered"] .review-status { color: #8a6518; }
+    .review-prompt { min-width: 260px; font-weight: 700; }
+    .review-answer { min-width: 150px; }
+    .review-why { min-width: 240px; color: var(--muted); }
+    .review-empty { padding: 22px; color: var(--muted); background: #fff; text-align: center; border: 1px solid var(--line); border-top: 0; }
+    .result-actions { display: flex; justify-content: center; gap: 10px; margin-top: 24px; }
+
+    footer {
+      padding: 20px 16px 28px;
+      color: #637069;
+      text-align: center;
+      font-size: 11px;
+    }
+
+    @media (max-width: 820px) {
+      .masthead-inner { grid-template-columns: 1fr; gap: 18px; }
+      h1 { font-size: 32px; }
+      .energy-chain { max-width: 420px; }
+      .progress-inner { grid-template-columns: auto 1fr; gap: 14px; }
+      .jump-link { display: none; }
+      .quiz-meta { grid-template-columns: 1fr 1fr 1fr; }
+      .student-field { grid-column: 1 / -1; }
+      .meta-stat { text-align: left; }
+      .formula-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .formula-item:nth-child(4) { border-left: 0; border-top: 1px solid rgba(255, 255, 255, 0.2); }
+      .formula-item:nth-child(5) { border-top: 1px solid rgba(255, 255, 255, 0.2); }
+      .breakdown-grid { grid-template-columns: repeat(2, 1fr); }
+      .results-header { grid-template-columns: 130px minmax(0, 1fr); }
+      .score-mark { width: 116px; height: 116px; font-size: 39px; }
+      .result-stats { grid-template-columns: repeat(2, 1fr); }
+      .result-stat:nth-child(2) { border-right: 0; }
+      .result-stat:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+    }
+
+    @media (max-width: 600px) {
+      body { font-size: 15px; }
+      .masthead-inner, .progress-inner, main { width: min(100% - 22px, 1080px); }
+      .masthead-inner { padding: 23px 0 21px; }
+      h1 { font-size: 28px; }
+      .subtitle { font-size: 13px; }
+      .energy-chain { grid-template-columns: 1fr auto 1fr auto 1fr; gap: 4px; }
+      .energy-node { min-height: 56px; padding: 5px; font-size: 10px; }
+      .energy-arrow { font-size: 16px; }
+      .progress-inner { min-height: 52px; }
+      main { padding-top: 22px; }
+      .quiz-meta { gap: 15px; }
+      .meta-stat strong { font-size: 21px; }
+      .chapter-review { margin-top: 26px; padding-bottom: 28px; }
+      .review-intro { grid-template-columns: 1fr; align-items: start; gap: 14px; }
+      .review-intro h2 { font-size: 26px; }
+      .start-quiz-link { justify-self: start; }
+      .review-grid { grid-template-columns: 1fr; }
+      .review-topic { padding: 17px 15px; }
+      .review-topic:nth-child(n+2) { border-top: 1px solid var(--line); }
+      .formula-strip { padding: 18px 15px 16px; }
+      .formula-grid { grid-template-columns: 1fr; }
+      .formula-item { min-height: 0; border-left: 0; border-top: 1px solid rgba(255, 255, 255, 0.2); }
+      .formula-item:first-child { border-top: 0; }
+      .section-block { margin-top: 34px; }
+      .section-heading { grid-template-columns: 44px minmax(0, 1fr); gap: 10px; }
+      .section-number { width: 44px; height: 44px; font-size: 18px; }
+      .section-heading h2 { font-size: 22px; }
+      .section-total { display: none; }
+      .question-card { padding: 17px 14px 15px; }
+      .question-prompt { font-size: 16px; }
+      .options { grid-template-columns: 1fr; }
+      .option { min-height: 48px; }
+      .results { margin-top: 40px; }
+      .results-header { grid-template-columns: 1fr; padding: 22px; text-align: center; }
+      .score-mark { margin: 0 auto; }
+      .results-header h2 { font-size: 27px; }
+      .breakdown-grid { grid-template-columns: 1fr; }
+      .review-heading { align-items: stretch; flex-direction: column; }
+      .filters { align-self: stretch; }
+      .filter-button { flex: 1; padding: 0 7px; }
+      .result-actions { flex-direction: column; }
+      .result-actions button { width: 100%; }
+    }
+
+    @media print {
+      body { background: #fff; font-size: 11px; }
+      .masthead { color: #000; background: #fff; border-bottom: 2px solid #000; }
+      .masthead-inner { display: block; padding: 10px 0; }
+      .eyebrow, .subtitle { color: #000; }
+      .energy-chain, .progress-dock, .quiz-meta, .chapter-review, #quizForm, .filters, .result-actions, footer { display: none !important; }
+      main { width: 100%; padding: 0; }
+      .results { margin: 0; padding: 0; }
+      .results-header { color: #000; background: #fff; border: 2px solid #000; }
+      .results-header p { color: #000; }
+      .score-mark { border-color: #000; }
+      .breakdown-grid { grid-template-columns: repeat(5, 1fr); }
+      .review-table th { color: #000; background: #eee; }
+      .review-table-wrap { overflow: visible; }
+    }
+  </style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div>
+        <p class="eyebrow">Grade 7 Physics · Chapter 3</p>
+        <h1>Energy: Comprehensive Quiz</h1>
+        <p class="subtitle">Work, mechanical energy, stored forms, transformations and conservation.</p>
+      </div>
+      <div class="energy-chain" aria-label="An example energy transformation chain">
+        <div class="energy-node">Stored<br>energy</div>
+        <div class="energy-arrow" aria-hidden="true">→</div>
+        <div class="energy-node">Motion<br>energy</div>
+        <div class="energy-arrow" aria-hidden="true">→</div>
+        <div class="energy-node">Useful<br>work</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="progress-dock">
+    <div class="progress-inner">
+      <div class="progress-copy"><strong id="answeredText">0 of 52 answered</strong><span>Progress</span></div>
+      <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+      <a class="jump-link" href="#submitZone">Go to submit</a>
+    </div>
+  </div>
+
+  <main>
+    <div class="quiz-meta">
+      <div class="student-field">
+        <label for="studentName">Student name</label>
+        <input id="studentName" type="text" autocomplete="name" placeholder="Enter name (optional)">
+      </div>
+      <div class="meta-stat"><strong>52</strong><span>questions</span></div>
+      <div class="meta-stat"><strong>52</strong><span>marks</span></div>
+      <div class="meta-stat"><strong>5</strong><span>sections</span></div>
+    </div>
+
+    <section class="chapter-review" aria-labelledby="chapter-review-title">
+      <div class="review-intro">
+        <div>
+          <p class="review-kicker">Read before the quiz</p>
+          <h2 id="chapter-review-title">Chapter at a Glance</h2>
+          <p class="review-intro-copy">Use this quick revision sheet to recall the key ideas, energy changes and formulae from the chapter.</p>
+        </div>
+        <a class="start-quiz-link" href="#quiz-start">Start quiz</a>
+      </div>
+
+      <div class="review-grid">
+        <div class="review-topic">
+          <h3>Work and Energy</h3>
+          <ul>
+            <li><strong>Work</strong> is done only when a force produces displacement in its direction. A force acting without movement does no work.</li>
+            <li><strong>Energy</strong> is the ability of a body to do work. Energy is the cause; work is the effect.</li>
+            <li>The SI unit of both work and energy is the <strong>joule (J)</strong>. One joule equals one newton metre.</li>
+          </ul>
+        </div>
+        <div class="review-topic">
+          <h3>Mechanical Energy</h3>
+          <ul>
+            <li><strong>Kinetic energy</strong> is energy due to motion. It increases with mass and with the square of speed.</li>
+            <li><strong>Potential energy</strong> is stored due to position or change of shape. Gravitational PE increases with mass and height.</li>
+            <li>Stretched bands, drawn bows and compressed springs store <strong>elastic potential energy</strong>.</li>
+          </ul>
+        </div>
+        <div class="review-topic">
+          <h3>Forms and Transformations</h3>
+          <ul>
+            <li>Common forms include <strong>heat, light, sound and electrical energy</strong>; stored forms include muscular, chemical, magnetic and nuclear energy.</li>
+            <li>Examples: fan: electrical → mechanical; microphone: sound → electrical; bulb: electrical → light + heat; solar cell: light → electrical.</li>
+            <li>Hydroelectricity: potential → kinetic → mechanical → electrical. Photosynthesis: light → chemical.</li>
+          </ul>
+        </div>
+        <div class="review-topic">
+          <h3>Conservation of Energy</h3>
+          <ul>
+            <li>Energy can neither be created nor destroyed. It can only be transformed or transferred; total energy remains constant.</li>
+            <li>Pendulum extremes have maximum PE and zero KE; the mean position has maximum KE and minimum PE.</li>
+            <li>Friction changes useful mechanical energy into heat and sound. This is <strong>dissipation</strong>, not destruction of energy.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="formula-strip" aria-labelledby="formula-title">
+        <h3 id="formula-title">Important Formulae</h3>
+        <p class="formula-note">Use SI units before substituting values.</p>
+        <div class="formula-grid">
+          <div class="formula-item"><span class="formula-label">Work</span><span class="formula-equation">W = F × d</span><span class="formula-detail">Also F = W ÷ d and d = W ÷ F</span></div>
+          <div class="formula-item"><span class="formula-label">Kinetic energy</span><span class="formula-equation">KE = ½mv²</span><span class="formula-detail">Doubling speed makes KE four times greater.</span></div>
+          <div class="formula-item"><span class="formula-label">Potential energy</span><span class="formula-equation">PE = mgh</span><span class="formula-detail">Depends on mass, gravity and height.</span></div>
+          <div class="formula-item"><span class="formula-label">Mechanical energy</span><span class="formula-equation">ME = KE + PE</span><span class="formula-detail">The total stays constant when friction is ignored.</span></div>
+          <div class="formula-item"><span class="formula-label">Units</span><span class="formula-equation">1 J = 1 N m</span><span class="formula-detail">1 calorie ≈ 4.2 joules</span></div>
+        </div>
+        <p class="symbol-key"><strong>Symbols:</strong> W = work, F = force, d = displacement, m = mass, v = speed, g = acceleration due to gravity, h = height.</p>
+      </div>
+    </section>
+
+    <form id="quizForm" novalidate>
+      <span id="quiz-start"></span>
+      <div id="quizContent"></div>
+      <div class="submit-zone" id="submitZone">
+        <p id="submitNote">Unanswered questions are included in the final review.</p>
+        <button class="primary-button" type="submit">Submit quiz</button>
+      </div>
+    </form>
+
+    <section class="results" id="results" aria-live="polite" hidden>
+      <div class="results-header">
+        <div class="score-mark" id="scoreMark">0<span>out of 52</span></div>
+        <div>
+          <p class="student-result" id="studentResult"></p>
+          <h2 id="resultTitle">Quiz summary</h2>
+          <p id="resultMessage"></p>
+        </div>
+      </div>
+
+      <div class="result-stats">
+        <div class="result-stat"><strong id="percentStat">0%</strong><span>percentage</span></div>
+        <div class="result-stat correct-stat"><strong id="correctStat">0</strong><span>right answers</span></div>
+        <div class="result-stat wrong-stat"><strong id="wrongStat">0</strong><span>wrong answers</span></div>
+        <div class="result-stat"><strong id="unansweredStat">0</strong><span>unanswered</span></div>
+      </div>
+
+      <div class="breakdown">
+        <h3>Section breakdown</h3>
+        <div class="breakdown-grid" id="breakdownGrid"></div>
+      </div>
+
+      <div class="review-heading">
+        <div>
+          <h3>Answer review</h3>
+          <p>Your response, the right answer and the reason are shown for every question.</p>
+        </div>
+        <div class="filters" role="group" aria-label="Filter reviewed answers">
+          <button class="filter-button active" type="button" data-filter="all">All</button>
+          <button class="filter-button" type="button" data-filter="wrong">Wrong</button>
+          <button class="filter-button" type="button" data-filter="unanswered">Unanswered</button>
+          <button class="filter-button" type="button" data-filter="correct">Right</button>
+        </div>
+      </div>
+
+      <div class="review-table-wrap">
+        <table class="review-table">
+          <thead>
+            <tr>
+              <th>Status</th>
+              <th>Question</th>
+              <th>Your answer</th>
+              <th>Right answer</th>
+              <th>Why</th>
+            </tr>
+          </thead>
+          <tbody id="reviewBody"></tbody>
+        </table>
+      </div>
+      <div class="review-empty" id="reviewEmpty" hidden>No answers match this filter.</div>
+
+      <div class="result-actions">
+        <button class="primary-button" id="retryButton" type="button">Try another attempt</button>
+        <button class="secondary-button" id="printButton" type="button">Print review</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>Prepared from Energy.pdf and Greenwood High School Physics papers from 2024-25 and 2025-26.</footer>
+
+  <script>
+    const SECTIONS = [
+      { key: "basics", number: "01", title: "Work and Energy Basics", note: "Definitions, conditions, units and calculations" },
+      { key: "mechanical", number: "02", title: "Mechanical Energy", note: "Kinetic energy, potential energy and their factors" },
+      { key: "forms", number: "03", title: "Forms of Energy", note: "Heat, light, sound, electrical and stored forms" },
+      { key: "transformations", number: "04", title: "Energy Transformations", note: "Everyday devices and multi-stage energy chains" },
+      { key: "conservation", number: "05", title: "Conservation and Applications", note: "Pendulums, roller coasters, free fall and dissipation" }
+    ];
+
+    const hydroVisual = `
+      <svg viewBox="0 0 760 150" role="img" aria-label="Hydroelectric power sequence from stored water to electricity">
+        <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#286b8d"/></marker></defs>
+        <g font-family="Avenir Next, sans-serif" text-anchor="middle">
+          <path d="M142 76 H220 M330 76 H408 M518 76 H596" stroke="#286b8d" stroke-width="4" marker-end="url(#arrow)"/>
+          <rect x="12" y="26" width="130" height="98" rx="6" fill="#e6f2f7" stroke="#286b8d"/>
+          <path d="M26 75 Q48 58 70 75 T114 75 T136 75 V110 H26Z" fill="#74b9d6"/>
+          <text x="77" y="48" font-size="13" font-weight="700" fill="#17211d">Water in dam</text>
+          <text x="77" y="140" font-size="12" fill="#596660">potential energy</text>
+          <rect x="220" y="43" width="110" height="66" rx="6" fill="#fff3d8" stroke="#d99a21"/>
+          <path d="M240 62 L310 90 M240 90 L310 62" stroke="#d99a21" stroke-width="5"/>
+          <text x="275" y="125" font-size="12" fill="#596660">moving water</text>
+          <rect x="408" y="43" width="110" height="66" rx="6" fill="#e8f6ed" stroke="#1f6048"/>
+          <circle cx="463" cy="76" r="23" fill="none" stroke="#1f6048" stroke-width="5"/>
+          <path d="M463 53 V99 M440 76 H486" stroke="#1f6048" stroke-width="4"/>
+          <text x="463" y="125" font-size="12" fill="#596660">turbine</text>
+          <rect x="596" y="43" width="150" height="66" rx="6" fill="#f3edf8" stroke="#6e4b8b"/>
+          <path d="M665 54 L647 81 H665 L654 102 L688 70 H669 L681 54Z" fill="#6e4b8b"/>
+          <text x="671" y="125" font-size="12" fill="#596660">generator output</text>
+        </g>
+      </svg>`;
+
+    const pendulumVisual = `
+      <svg viewBox="0 0 760 170" role="img" aria-label="Pendulum with left extreme, mean and right extreme positions">
+        <g font-family="Avenir Next, sans-serif" text-anchor="middle">
+          <line x1="380" y1="18" x2="380" y2="130" stroke="#7a8780" stroke-width="2" stroke-dasharray="5 5"/>
+          <line x1="380" y1="18" x2="245" y2="112" stroke="#1f6048" stroke-width="4"/>
+          <line x1="380" y1="18" x2="515" y2="112" stroke="#1f6048" stroke-width="4"/>
+          <circle cx="380" cy="18" r="7" fill="#17211d"/>
+          <circle cx="245" cy="112" r="18" fill="#d99a21"/>
+          <circle cx="380" cy="130" r="18" fill="#286b8d"/>
+          <circle cx="515" cy="112" r="18" fill="#d99a21"/>
+          <path d="M267 80 Q380 22 493 80" fill="none" stroke="#9caaa1" stroke-width="2" stroke-dasharray="5 5"/>
+          <text x="245" y="150" font-size="13" font-weight="700" fill="#17211d">Extreme A</text>
+          <text x="380" y="162" font-size="13" font-weight="700" fill="#17211d">Mean O</text>
+          <text x="515" y="150" font-size="13" font-weight="700" fill="#17211d">Extreme B</text>
+          <text x="96" y="76" font-size="12" fill="#596660">Highest position</text>
+          <text x="660" y="76" font-size="12" fill="#596660">Highest position</text>
+        </g>
+      </svg>`;
+
+    const QUESTIONS = [
+      { id: "E01", section: "basics", type: "single", prompt: "Which statement best defines energy?", options: ["The amount of matter in a body", "The ability of a body to do work", "A push or pull acting on a body", "The distance travelled per unit time"], answer: 1, explanation: "Energy is the ability or capacity of a body to do work.", source: "Energy.pdf" },
+      { id: "E02", section: "basics", type: "multi", prompt: "Which two conditions are required for a force to do work on a body?", hint: "Select two answers.", options: ["A force acts on the body", "The body is displaced in the direction of the force", "The body must change shape", "The body must move at constant speed"], answer: [0, 1], explanation: "Work is done when an applied force produces displacement in its direction.", source: "Energy.pdf" },
+      { id: "E03", section: "basics", type: "single", prompt: "In which situation is no work done by the applied force?", options: ["Lifting a book from a table", "Pushing a wall that does not move", "Pulling a suitcase across a floor", "Kicking a ball so that it moves"], answer: 1, explanation: "The wall has no displacement, so the applied force does no work on it.", source: "2025 Term I Q1(v)" },
+      { id: "E04", section: "basics", type: "single", prompt: "Which formula gives the work done when force and displacement are in the same direction?", options: ["Work = force ÷ displacement", "Work = displacement ÷ force", "Work = force × displacement", "Work = force + displacement"], answer: 2, explanation: "For force along the displacement, W = F × d.", source: "Energy.pdf" },
+      { id: "E05", section: "basics", type: "number", prompt: "An object moves 5 m when 45 J of work is done. What force was applied?", hint: "Enter the number in newtons.", answer: 9, tolerance: 0.001, correctText: "9 N", explanation: "F = W ÷ d = 45 J ÷ 5 m = 9 N.", source: "2025 Term I Q1(xii)" },
+      { id: "E06", section: "basics", type: "number", prompt: "A force of 12 N moves a box 3 m in its direction. Calculate the work done.", hint: "Enter the number in joules.", answer: 36, tolerance: 0.001, correctText: "36 J", explanation: "W = F × d = 12 N × 3 m = 36 J.", source: "Energy.pdf · application" },
+      { id: "E07", section: "basics", type: "multi", prompt: "Which two expressions name the same SI unit of work and energy?", hint: "Select two answers.", options: ["joule", "watt", "newton metre", "newton per metre"], answer: [0, 2], explanation: "One joule is one newton metre: 1 J = 1 N m.", source: "2024 Term I Q2(i)(d)" },
+      { id: "E08", section: "basics", type: "number", prompt: "Using 1 calorie ≈ 4.2 joules, convert 10 calories to joules.", hint: "Enter the number in joules.", answer: 42, tolerance: 0.2, correctText: "Approximately 42 J", explanation: "10 cal × 4.2 J/cal = approximately 42 J.", source: "Energy.pdf" },
+
+      { id: "E09", section: "mechanical", type: "single", prompt: "Mechanical energy is the energy a body possesses because of its...", options: ["colour or temperature", "position or motion", "volume or density", "charge or magnetism"], answer: 1, explanation: "Mechanical energy is energy due to position or motion.", source: "Energy.pdf" },
+      { id: "E10", section: "mechanical", type: "multi", prompt: "Which are the two types of mechanical energy?", hint: "Select two answers.", options: ["kinetic energy", "heat energy", "potential energy", "sound energy"], answer: [0, 2], explanation: "Mechanical energy is divided into kinetic energy and potential energy.", source: "Energy.pdf" },
+      { id: "E11", section: "mechanical", type: "single", prompt: "Kinetic energy is possessed by a body because of its...", options: ["motion", "height only", "chemical bonds", "temperature"], answer: 0, explanation: "Every moving body possesses kinetic energy.", source: "Energy.pdf" },
+      { id: "E12", section: "mechanical", type: "multi", prompt: "Which two factors directly affect the kinetic energy of a moving body?", hint: "Select two answers.", options: ["mass", "colour", "speed", "height above ground"], answer: [0, 2], explanation: "Kinetic energy depends on mass and on the square of speed: KE = ½mv².", source: "Energy.pdf" },
+      { id: "E13", section: "mechanical", type: "single", prompt: "A car doubles its speed without changing its mass. Its kinetic energy becomes...", options: ["half as much", "twice as much", "three times as much", "four times as much"], answer: 3, explanation: "Kinetic energy is proportional to speed squared. Doubling speed gives 2² = 4 times the kinetic energy.", source: "Energy.pdf · application" },
+      { id: "E14", section: "mechanical", type: "single", prompt: "Train A has mass 120,000 kg and speed 12 m/s. Train B has mass 240,000 kg and speed 6 m/s. How does Train A's kinetic energy compare with Train B's?", options: ["Train A has half as much", "Both have equal kinetic energy", "Train A has twice as much", "Train A has four times as much"], answer: 2, explanation: "Train A has half the mass but twice the speed. The doubled speed contributes a factor of four, so overall A has ½ × 4 = 2 times B's kinetic energy.", source: "2025 Term I Q4(i)" },
+      { id: "E15", section: "mechanical", type: "single", prompt: "Potential energy is the energy a body possesses because of its...", options: ["position or change in shape", "motion only", "temperature only", "electric current"], answer: 0, explanation: "Potential energy is stored because of position or a change in shape, such as stretching or compression.", source: "Energy.pdf" },
+      { id: "E16", section: "mechanical", type: "multi", prompt: "Which factors appear in gravitational potential energy, PE = mgh?", hint: "Select all that apply.", options: ["mass", "height", "acceleration due to gravity", "speed"], answer: [0, 1, 2], explanation: "Gravitational potential energy depends on mass, gravitational acceleration and height.", source: "Energy.pdf" },
+      { id: "E17", section: "mechanical", type: "number", prompt: "Find the gravitational potential energy of a 2 kg object held 3 m above the ground. Take g = 10 N/kg.", hint: "Enter the number in joules.", answer: 60, tolerance: 0.001, correctText: "60 J", explanation: "PE = mgh = 2 kg × 10 N/kg × 3 m = 60 J.", source: "Energy.pdf · application" },
+      { id: "E18", section: "mechanical", type: "single", prompt: "What is the main energy change when a stretched rubber band is released?", options: ["Kinetic → elastic potential", "Elastic potential → kinetic", "Heat → chemical", "Electrical → sound"], answer: 1, explanation: "The energy stored while stretching the band is elastic potential energy; on release it becomes kinetic energy.", source: "Energy.pdf activity" },
+      { id: "E19", section: "mechanical", type: "single", prompt: "Two rocks of 200 kg and 50 kg are at the same cliff height. How do their gravitational potential energies compare?", options: ["The 50 kg rock has four times as much", "They have the same", "The 200 kg rock has twice as much", "The 200 kg rock has four times as much"], answer: 3, explanation: "At the same height and g, PE is directly proportional to mass. 200 ÷ 50 = 4.", source: "2024 Annual Q4(iii)" },
+      { id: "E20", section: "mechanical", type: "single", prompt: "Which statement correctly describes a book falling from a shelf before it reaches the floor?", options: ["It has potential energy only throughout the fall", "It has kinetic energy only throughout the fall", "It has both kinetic and potential energy during the fall", "It has neither kinetic nor potential energy"], answer: 2, explanation: "While falling, the moving book has kinetic energy and, while still above the floor, it also retains potential energy.", source: "2024 Term I Q1(vii)" },
+
+      { id: "E21", section: "forms", type: "single", prompt: "Which form of energy produces the sensation of hotness or coldness?", options: ["sound energy", "heat energy", "magnetic energy", "light energy"], answer: 1, explanation: "Heat energy, also called thermal energy, is associated with the sensation of hotness or coldness.", source: "Energy.pdf" },
+      { id: "E22", section: "forms", type: "single", prompt: "Which form of energy makes objects visible and is used by green plants in photosynthesis?", options: ["light energy", "sound energy", "magnetic energy", "muscular energy"], answer: 0, explanation: "Light enables vision, and plants use sunlight to prepare food through photosynthesis.", source: "Energy.pdf" },
+      { id: "E23", section: "forms", type: "single", prompt: "Sound energy is produced by...", options: ["stationary bodies", "vibrating bodies", "chemical bonds only", "objects at a height"], answer: 1, explanation: "Vibrating bodies such as vocal cords, strings and drum skins produce sound energy.", source: "Energy.pdf" },
+      { id: "E24", section: "forms", type: "single", prompt: "Electrical energy is produced by the flow of...", options: ["molecules through a vacuum", "electric charges through a conductor", "sound waves through air", "heat through an insulator"], answer: 1, explanation: "Electrical energy comes from the flow of electric charges, or electrons, through a conductor.", source: "Energy.pdf" },
+      { id: "E25", section: "forms", type: "single", prompt: "Which energy is stored in our muscles and obtained from the food we eat?", options: ["nuclear energy", "magnetic energy", "muscular energy", "light energy"], answer: 2, explanation: "Chemical energy from food is released and stored in the muscles as muscular energy.", source: "Energy.pdf" },
+      { id: "E26", section: "forms", type: "single", prompt: "The energy stored in molecular bonds that hold atoms together is...", options: ["chemical energy", "sound energy", "kinetic energy", "heat energy"], answer: 0, explanation: "Chemical energy is stored in molecular bonds and can be released during a chemical change.", source: "Energy.pdf" },
+      { id: "E27", section: "forms", type: "single", prompt: "The stored energy that allows a magnet to exert force on iron objects is...", options: ["electrical energy", "magnetic energy", "light energy", "muscular energy"], answer: 1, explanation: "Magnetic energy is stored in a magnet and enables it to exert magnetic force.", source: "Energy.pdf" },
+      { id: "E28", section: "forms", type: "single", prompt: "Nuclear energy is stored in the...", options: ["surface of an atom", "electrons flowing in a wire", "nucleus of an atom", "muscles of the body"], answer: 2, explanation: "Nuclear energy is stored in an atom's nucleus and may be released when nuclei split or combine.", source: "Energy.pdf" },
+      { id: "E29", section: "forms", type: "single", prompt: "What form of energy is stored in a battery before it is connected in a circuit?", options: ["chemical energy", "sound energy", "kinetic energy", "gravitational potential energy"], answer: 0, explanation: "A battery stores chemical energy, which can be converted into electrical energy.", source: "Energy.pdf" },
+      { id: "E30", section: "forms", type: "single", prompt: "An MRI scanner mainly uses which form of energy to help detect problems inside the body?", options: ["muscular energy", "chemical energy", "magnetic energy", "elastic potential energy"], answer: 2, explanation: "Magnetic Resonance Imaging uses magnetic energy to create images of structures inside the body.", source: "Energy.pdf" },
+
+      { id: "E31", section: "transformations", type: "single", prompt: "What is the main energy transformation in photosynthesis?", options: ["Chemical → light", "Light → chemical", "Heat → sound", "Electrical → magnetic"], answer: 1, explanation: "Plants convert the light energy of the Sun into chemical energy stored in food.", source: "2024 Term I Q1(xv)" },
+      { id: "E32", section: "transformations", type: "single", prompt: "What useful energy change occurs in an electric fan?", options: ["Electrical → mechanical", "Mechanical → electrical", "Sound → chemical", "Heat → light"], answer: 0, explanation: "The motor converts electrical energy into the mechanical energy of the rotating blades.", source: "Energy.pdf" },
+      { id: "E33", section: "transformations", type: "single", prompt: "A microphone mainly converts...", options: ["electrical energy to sound energy", "sound energy to electrical energy", "light energy to heat energy", "chemical energy to mechanical energy"], answer: 1, explanation: "A microphone changes sound vibrations into an electrical signal.", source: "Energy.pdf" },
+      { id: "E34", section: "transformations", type: "single", prompt: "An electromagnet converts electrical energy mainly into...", options: ["magnetic energy", "chemical energy", "light energy", "gravitational potential energy"], answer: 0, explanation: "Current through the coil creates a magnetic field, converting electrical energy into magnetic energy.", source: "Energy.pdf" },
+      { id: "E35", section: "transformations", type: "single", prompt: "An electric bell and a loudspeaker both convert electrical energy mainly into...", options: ["chemical energy", "sound energy", "potential energy", "nuclear energy"], answer: 1, explanation: "Their useful output is sound energy.", source: "Energy.pdf" },
+      { id: "E36", section: "transformations", type: "multi", prompt: "Which two energy forms are produced by a glowing electric bulb?", hint: "Select two answers.", options: ["light energy", "chemical energy", "heat energy", "magnetic energy"], answer: [0, 2], explanation: "A bulb converts electrical energy into light and heat. The heat is often an unwanted output.", source: "2025 Term I Q2(i)(b)" },
+      { id: "E37", section: "transformations", type: "single", prompt: "What energy change occurs in a dry cell while it supplies a circuit?", options: ["Electrical → chemical", "Chemical → electrical", "Light → electrical", "Sound → electrical"], answer: 1, explanation: "A dry cell converts stored chemical energy into electrical energy.", source: "Energy.pdf" },
+      { id: "E38", section: "transformations", type: "single", prompt: "A solar cell converts...", options: ["electrical energy to light energy", "chemical energy to heat energy", "light energy to electrical energy", "magnetic energy to sound energy"], answer: 2, explanation: "A solar cell changes incoming light energy into electrical energy.", source: "Energy.pdf" },
+      { id: "E39", section: "transformations", type: "multi", prompt: "When a firecracker burns, its chemical energy is converted into which forms?", hint: "Select all that apply.", options: ["heat", "light", "sound", "gravitational potential"], answer: [0, 1, 2], explanation: "A burning cracker releases heat, light and sound energy.", source: "Energy.pdf" },
+      { id: "E40", section: "transformations", type: "single", prompt: "Which sequence best describes a thermal power plant?", options: ["Chemical → heat → kinetic (steam) → mechanical (turbine) → electrical", "Light → chemical → sound → electrical", "Electrical → heat → chemical → nuclear", "Kinetic → potential → light → magnetic"], answer: 0, explanation: "Fuel heats water; steam moves a turbine; the turbine drives a generator to produce electricity.", source: "Energy.pdf" },
+      { id: "E41", section: "transformations", type: "single", prompt: "Which energy sequence produces hydroelectricity?", visual: hydroVisual, options: ["Potential → kinetic → mechanical → electrical", "Kinetic → chemical → heat → electrical", "Electrical → potential → sound → heat", "Chemical → light → magnetic → electrical"], answer: 0, explanation: "Stored water has potential energy. Falling water gains kinetic energy, turns the turbine mechanically, and the generator produces electrical energy.", source: "2024 Term I Q7(iii)" },
+      { id: "E42", section: "transformations", type: "single", prompt: "A windmill drives a dynamo connected to a glowing bulb. Which complete chain is correct?", options: ["Kinetic wind → mechanical blades → electrical → light and heat", "Light → chemical → kinetic → sound", "Electrical → kinetic wind → magnetic → heat", "Potential wind → nuclear → electrical → chemical"], answer: 0, explanation: "Moving air turns the blades, the dynamo produces electricity, and the bulb produces light and heat.", source: "Energy.pdf concept check" },
+      { id: "E43", section: "transformations", type: "single", prompt: "When fuel is ignited in a car engine, which sequence begins the car's motion?", options: ["Chemical → heat → mechanical → kinetic", "Kinetic → chemical → electrical → heat", "Heat → light → magnetic → kinetic", "Electrical → nuclear → sound → potential"], answer: 0, explanation: "Fuel's chemical energy becomes heat, moving engine parts mechanically and finally giving the car kinetic energy.", source: "2025 Term I Q5(i)(a)" },
+      { id: "E44", section: "transformations", type: "single", prompt: "What energy transformation occurs in a burning kerosene lantern?", options: ["Chemical → light and heat", "Electrical → chemical and sound", "Potential → kinetic and magnetic", "Light → electrical and heat"], answer: 0, explanation: "Kerosene stores chemical energy, which is released mainly as light and heat when it burns.", source: "Energy.pdf competency check" },
+
+      { id: "E45", section: "conservation", type: "single", prompt: "Which statement is the law of conservation of energy?", options: ["Energy is used up and disappears after doing work", "Energy can be created but not destroyed", "Energy can neither be created nor destroyed, only transformed", "Only mechanical energy is conserved"], answer: 2, explanation: "Energy may change form or transfer between objects, but the total amount remains constant.", source: "2025 Term I Q6(iii)" },
+      { id: "E46", section: "conservation", type: "number", prompt: "A mixer receives 100 J of electrical energy and uses 70 J for useful mechanical work. How much is transformed into sound and heat?", hint: "Enter the number in joules.", answer: 30, tolerance: 0.001, correctText: "30 J", explanation: "By conservation of energy, 100 J − 70 J = 30 J becomes other forms such as sound and heat.", source: "Energy.pdf" },
+      { id: "E47", section: "conservation", type: "single", prompt: "At either extreme position A or B of an ideal pendulum, its energy is...", visual: pendulumVisual, options: ["maximum kinetic and zero potential", "maximum potential and zero kinetic", "zero kinetic and zero potential", "equally divided between kinetic and potential"], answer: 1, explanation: "At an extreme, the bob momentarily stops at its greatest height, so KE = 0 and PE is maximum.", source: "Energy.pdf" },
+      { id: "E48", section: "conservation", type: "single", prompt: "At the mean position O of an ideal pendulum, its energy is...", options: ["maximum kinetic and minimum potential", "maximum potential and zero kinetic", "entirely chemical", "equally divided at all times"], answer: 0, explanation: "The bob is fastest at its lowest, mean position. Its kinetic energy is maximum and potential energy is minimum.", source: "2024 Annual Q4(ii)" },
+      { id: "E49", section: "conservation", type: "single", prompt: "A real pendulum eventually stops. What happens to its mechanical energy?", options: ["It is destroyed", "It changes mainly into heat and sound through friction", "It creates new potential energy", "It becomes nuclear energy"], answer: 1, explanation: "Friction and air resistance transfer the pendulum's energy to the surroundings, mainly as heat and some sound. Total energy is still conserved.", source: "Energy.pdf" },
+      { id: "E50", section: "conservation", type: "single", prompt: "Ignoring friction, which comparison is correct for a roller-coaster car?", options: ["Top: maximum KE; bottom: maximum PE", "Top: maximum PE; bottom: maximum KE", "Both PE and KE are zero at the bottom", "Total mechanical energy increases downhill"], answer: 1, explanation: "At the highest point PE is greatest. As the car descends, PE becomes KE, which is greatest at the bottom.", source: "2024 Term I Q3(iii)" },
+      { id: "E51", section: "conservation", type: "single", prompt: "A ball begins free fall with total mechanical energy E. Halfway down, what does the textbook model show?", options: ["PE = E and KE = 0", "PE = 0 and KE = E", "PE = E/2 and KE = E/2", "PE + KE = 2E"], answer: 2, explanation: "In the simplified halfway model, half the potential energy has become kinetic energy, while PE + KE remains E.", source: "Energy.pdf" },
+      { id: "E52", section: "conservation", type: "single", prompt: "A 0.2 kg ball launched by a catapult reaches 15 m. Take g = 10 N/kg and ignore air resistance. Which set is correct?", options: ["Top PE = 3 J; ground KE = 30 J; chemical → kinetic", "Top PE = 30 J; ground KE = 30 J; elastic potential → kinetic", "Top PE = 30 J; ground KE = 0 J; heat → potential", "Top PE = 300 J; ground KE = 30 J; electrical → kinetic"], answer: 1, explanation: "PE = mgh = 0.2 × 10 × 15 = 30 J. Conservation gives 30 J of KE on return, and the catapult begins with elastic potential energy.", source: "2025 Term I Q8(iii)" }
+    ];
+
+    const quizContent = document.getElementById("quizContent");
+    const quizForm = document.getElementById("quizForm");
+    const resultsSection = document.getElementById("results");
+    const reviewBody = document.getElementById("reviewBody");
+    let gradedResults = [];
+    let activeFilter = "all";
+
+    function renderQuiz() {
+      quizContent.innerHTML = SECTIONS.map((section) => {
+        const sectionQuestions = QUESTIONS.filter((question) => question.section === section.key);
+        return `
+          <section class="section-block" id="section-${section.key}">
+            <div class="section-heading">
+              <div class="section-number">${section.number}</div>
+              <div><h2>${section.title}</h2><p>${section.note}</p></div>
+              <div class="section-total">${sectionQuestions.length} marks</div>
+            </div>
+            ${sectionQuestions.map(renderQuestion).join("")}
+          </section>`;
+      }).join("");
+    }
+
+    function renderQuestion(question) {
+      const hint = question.hint ? `<p class="question-hint">${question.hint}</p>` : "";
+      const visual = question.visual ? `<div class="concept-visual">${question.visual}</div>` : "";
+      let answerControl = "";
+
+      if (question.type === "number") {
+        answerControl = `<input class="numeric-answer" type="text" inputmode="decimal" name="${question.id}" aria-label="Answer to ${question.id}" placeholder="Enter answer">`;
+      } else {
+        const inputType = question.type === "multi" ? "checkbox" : "radio";
+        answerControl = `<div class="options">${question.options.map((option, index) => `
+          <label class="option">
+            <input type="${inputType}" name="${question.id}" value="${index}">
+            <span class="option-text">${option}</span>
+          </label>`).join("")}</div>`;
+      }
+
+      return `
+        <article class="question-card" id="card-${question.id}" data-question-id="${question.id}">
+          <div class="question-topline">
+            <span class="question-id">${question.id}</span>
+            <span class="question-source">${question.source}</span>
+            <span class="status-badge">Pending</span>
+          </div>
+          <p class="question-prompt">${question.prompt}</p>
+          ${hint}${visual}${answerControl}
+          <div class="question-feedback" aria-live="polite"></div>
+        </article>`;
+    }
+
+    function getResponse(question) {
+      if (question.type === "number") {
+        return quizForm.elements[question.id].value.trim();
+      }
+      const selected = [...quizForm.querySelectorAll(`input[name="${question.id}"]:checked`)].map((input) => Number(input.value));
+      return question.type === "multi" ? selected.sort((a, b) => a - b) : (selected.length ? selected[0] : null);
+    }
+
+    function responseIsEmpty(question, response) {
+      if (question.type === "number") return response === "";
+      if (question.type === "multi") return response.length === 0;
+      return response === null;
+    }
+
+    function responseIsCorrect(question, response) {
+      if (responseIsEmpty(question, response)) return false;
+      if (question.type === "number") {
+        const numeric = Number(response.replace(/,/g, "").match(/-?\d+(?:\.\d+)?/)?.[0]);
+        return Number.isFinite(numeric) && Math.abs(numeric - question.answer) <= (question.tolerance || 0);
+      }
+      if (question.type === "multi") {
+        return response.length === question.answer.length && response.every((value, index) => value === question.answer[index]);
+      }
+      return response === question.answer;
+    }
+
+    function correctAnswerText(question) {
+      if (question.correctText) return question.correctText;
+      if (question.type === "multi") return question.answer.map((index) => stripMarkup(question.options[index])).join("; ");
+      return stripMarkup(question.options[question.answer]);
+    }
+
+    function studentAnswerText(question, response) {
+      if (responseIsEmpty(question, response)) return "Not answered";
+      if (question.type === "number") return response;
+      if (question.type === "multi") return response.map((index) => stripMarkup(question.options[index])).join("; ");
+      return stripMarkup(question.options[response]);
+    }
+
+    function stripMarkup(value) {
+      const holder = document.createElement("div");
+      holder.innerHTML = value;
+      return holder.textContent || holder.innerText || "";
+    }
+
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[character]));
+    }
+
+    function updateProgress() {
+      const answered = QUESTIONS.reduce((total, question) => total + (responseIsEmpty(question, getResponse(question)) ? 0 : 1), 0);
+      document.getElementById("answeredText").textContent = `${answered} of ${QUESTIONS.length} answered`;
+      document.getElementById("progressFill").style.width = `${(answered / QUESTIONS.length) * 100}%`;
+    }
+
+    function markQuestion(result) {
+      const card = document.getElementById(`card-${result.question.id}`);
+      card.classList.add(result.correct ? "is-correct" : "is-wrong");
+      const badge = card.querySelector(".status-badge");
+      badge.textContent = result.unanswered ? "Unanswered" : (result.correct ? "Right" : "Wrong");
+
+      if (result.question.type === "number") {
+        card.querySelector(".numeric-answer").classList.add(result.correct ? "answer-correct" : "answer-wrong");
+      } else {
+        card.querySelectorAll(".option").forEach((label) => {
+          const value = Number(label.querySelector("input").value);
+          const isExpected = result.question.type === "multi" ? result.question.answer.includes(value) : result.question.answer === value;
+          const wasSelected = result.question.type === "multi" ? result.response.includes(value) : result.response === value;
+          if (isExpected) label.classList.add("option-correct");
+          if (wasSelected && !isExpected) label.classList.add("option-wrong");
+        });
+      }
+
+      card.querySelector(".question-feedback").innerHTML = result.correct
+        ? `<strong>Right answer.</strong>${result.question.explanation}`
+        : `<strong>${result.unanswered ? "Not answered." : "Wrong answer."} Right answer: ${escapeHtml(correctAnswerText(result.question))}</strong>${result.question.explanation}`;
+    }
+
+    function performanceMessage(percent) {
+      if (percent >= 90) return ["Excellent command of the chapter", "You applied definitions, calculations and conservation ideas with strong accuracy."];
+      if (percent >= 75) return ["Strong understanding", "Review the marked responses below to close the remaining gaps."];
+      if (percent >= 60) return ["A sound foundation", "Focus next on the wrong responses and trace each energy change step by step."];
+      if (percent >= 40) return ["Developing understanding", "Revisit the chapter sections named in the lowest breakdown scores, then try again."];
+      return ["Review the core ideas", "Start with work, kinetic and potential energy, then practise transformation chains before another attempt."];
+    }
+
+    function renderResults() {
+      const correct = gradedResults.filter((result) => result.correct).length;
+      const unanswered = gradedResults.filter((result) => result.unanswered).length;
+      const wrong = gradedResults.filter((result) => !result.correct && !result.unanswered).length;
+      const percent = Math.round((correct / QUESTIONS.length) * 100);
+      const [title, message] = performanceMessage(percent);
+      const studentName = document.getElementById("studentName").value.trim();
+
+      document.getElementById("scoreMark").innerHTML = `${correct}<span>out of ${QUESTIONS.length}</span>`;
+      document.getElementById("resultTitle").textContent = title;
+      document.getElementById("resultMessage").textContent = message;
+      document.getElementById("studentResult").textContent = studentName ? `${studentName}'s quiz summary` : "Quiz summary";
+      document.getElementById("percentStat").textContent = `${percent}%`;
+      document.getElementById("correctStat").textContent = correct;
+      document.getElementById("wrongStat").textContent = wrong;
+      document.getElementById("unansweredStat").textContent = unanswered;
+
+      document.getElementById("breakdownGrid").innerHTML = SECTIONS.map((section) => {
+        const results = gradedResults.filter((result) => result.question.section === section.key);
+        const sectionCorrect = results.filter((result) => result.correct).length;
+        const sectionPercent = Math.round((sectionCorrect / results.length) * 100);
+        return `<div class="breakdown-item"><strong>${sectionCorrect}/${results.length}</strong><span>${section.title}</span><div class="mini-track"><div class="mini-fill" style="width:${sectionPercent}%"></div></div></div>`;
+      }).join("");
+
+      renderReviewRows();
+    }
+
+    function renderReviewRows() {
+      const visible = gradedResults.filter((result) => {
+        if (activeFilter === "all") return true;
+        if (activeFilter === "correct") return result.correct;
+        if (activeFilter === "unanswered") return result.unanswered;
+        return !result.correct && !result.unanswered;
+      });
+      reviewBody.innerHTML = visible.map((result) => `
+        <tr data-status="${result.unanswered ? "unanswered" : (result.correct ? "correct" : "wrong")}">
+          <td class="review-status">${result.unanswered ? "Unanswered" : (result.correct ? "Right" : "Wrong")}</td>
+          <td class="review-prompt">${result.question.id}. ${result.question.prompt}</td>
+          <td class="review-answer">${escapeHtml(studentAnswerText(result.question, result.response))}</td>
+          <td class="review-answer">${escapeHtml(correctAnswerText(result.question))}</td>
+          <td class="review-why">${result.question.explanation}</td>
+        </tr>`).join("");
+      document.getElementById("reviewEmpty").hidden = visible.length > 0;
+      document.querySelector(".review-table-wrap").hidden = visible.length === 0;
+    }
+
+    function gradeQuiz(event) {
+      event.preventDefault();
+      gradedResults = QUESTIONS.map((question) => {
+        const response = getResponse(question);
+        return { question, response, unanswered: responseIsEmpty(question, response), correct: responseIsCorrect(question, response) };
+      });
+
+      gradedResults.forEach(markQuestion);
+      quizForm.querySelectorAll("input, button").forEach((control) => { control.disabled = true; });
+      document.getElementById("studentName").disabled = true;
+      renderResults();
+      resultsSection.hidden = false;
+      resultsSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function resetQuiz() {
+      quizForm.reset();
+      quizForm.querySelectorAll("input, button").forEach((control) => { control.disabled = false; });
+      document.getElementById("studentName").disabled = false;
+      document.querySelectorAll(".question-card").forEach((card) => {
+        card.classList.remove("is-correct", "is-wrong");
+        card.querySelector(".status-badge").textContent = "Pending";
+        card.querySelector(".question-feedback").innerHTML = "";
+      });
+      document.querySelectorAll(".option").forEach((option) => option.classList.remove("option-correct", "option-wrong"));
+      document.querySelectorAll(".numeric-answer").forEach((input) => input.classList.remove("answer-correct", "answer-wrong"));
+      resultsSection.hidden = true;
+      gradedResults = [];
+      activeFilter = "all";
+      document.querySelectorAll(".filter-button").forEach((button) => button.classList.toggle("active", button.dataset.filter === "all"));
+      updateProgress();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    renderQuiz();
+    quizForm.addEventListener("input", updateProgress);
+    quizForm.addEventListener("change", updateProgress);
+    quizForm.addEventListener("submit", gradeQuiz);
+    document.getElementById("retryButton").addEventListener("click", resetQuiz);
+    document.getElementById("printButton").addEventListener("click", () => window.print());
+    document.querySelectorAll(".filter-button").forEach((button) => {
+      button.addEventListener("click", () => {
+        activeFilter = button.dataset.filter;
+        document.querySelectorAll(".filter-button").forEach((candidate) => candidate.classList.toggle("active", candidate === button));
+        renderReviewRows();
+      });
+    });
+    updateProgress();
+  </script>
+</body>
+</html>
