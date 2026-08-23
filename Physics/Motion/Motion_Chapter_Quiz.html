@@ -1,0 +1,2046 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A comprehensive Grade 7 Physics revision guide and interactive quiz for the Motion chapter.">
+  <title>Motion Lab | Grade 7 Physics Quiz</title>
+  <style>
+    :root {
+      --paper: #f7f4ec;
+      --paper-deep: #ebe4d6;
+      --ink: #172724;
+      --muted: #5e6b68;
+      --line: #c9c3b7;
+      --teal: #116b60;
+      --teal-dark: #0b4b44;
+      --coral: #d0503a;
+      --gold: #e2a93b;
+      --blue: #2e5f91;
+      --green: #19754a;
+      --red: #b43b32;
+      --white: #fffefa;
+      --shadow: 0 18px 45px rgba(36, 43, 38, 0.12);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background-color: var(--paper);
+      background-image:
+        linear-gradient(rgba(23, 39, 36, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(23, 39, 36, 0.035) 1px, transparent 1px);
+      background-size: 28px 28px;
+      font-family: "Avenir Next", "Gill Sans", "Trebuchet MS", sans-serif;
+      line-height: 1.55;
+    }
+
+    button, input { font: inherit; }
+
+    button { cursor: pointer; }
+
+    button:focus-visible,
+    input:focus-visible,
+    label:has(input:focus-visible) {
+      outline: 3px solid var(--gold);
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 8px;
+      left: 8px;
+      z-index: 100;
+      transform: translateY(-150%);
+      padding: 10px 14px;
+      color: var(--white);
+      background: var(--ink);
+      border-radius: 4px;
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    .page-shell {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      border-bottom: 1px solid rgba(23, 39, 36, 0.18);
+      background: rgba(247, 244, 236, 0.94);
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: Futura, "Avenir Next", sans-serif;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      background: var(--teal);
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.16);
+    }
+
+    .header-meta {
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .intro {
+      padding: 48px 0 64px;
+    }
+
+    .intro-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+      gap: 52px;
+      align-items: center;
+      min-height: 430px;
+      padding-bottom: 42px;
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--coral);
+      font-size: 0.78rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1, h2, h3 {
+      font-family: Futura, "Avenir Next", sans-serif;
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 720px;
+      margin-bottom: 18px;
+      font-size: clamp(2.8rem, 8vw, 6.3rem);
+      font-weight: 900;
+    }
+
+    h1 span {
+      display: block;
+      color: var(--teal);
+    }
+
+    .lede {
+      max-width: 650px;
+      margin-bottom: 26px;
+      color: #3f4e4a;
+      font-size: 1.1rem;
+    }
+
+    .quiz-facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-size: 0.88rem;
+      font-weight: 800;
+    }
+
+    .quiz-facts li::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      margin-right: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .motion-scene {
+      position: relative;
+      min-height: 340px;
+      overflow: hidden;
+      border: 2px solid var(--ink);
+      border-radius: var(--radius);
+      background: #cfe8e1;
+      box-shadow: 12px 12px 0 var(--gold);
+    }
+
+    .motion-scene svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 340px;
+    }
+
+    .revision-band { padding: 44px 0; }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 170px minmax(0, 1fr);
+      gap: 26px;
+      margin-bottom: 28px;
+    }
+
+    .section-index {
+      color: var(--coral);
+      font-size: 0.8rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(1.8rem, 4vw, 3.1rem);
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0;
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+    }
+
+    .summary-item {
+      min-height: 176px;
+      padding: 22px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 254, 250, 0.72);
+    }
+
+    .summary-item h3 {
+      margin-bottom: 10px;
+      color: var(--teal-dark);
+      font-size: 1rem;
+    }
+
+    .summary-item p,
+    .summary-item ul {
+      margin-bottom: 0;
+      color: #45534f;
+      font-size: 0.92rem;
+    }
+
+    .summary-item ul { padding-left: 18px; }
+
+    .formula-band {
+      margin-inline: calc(50% - 50vw);
+      padding: 48px max(16px, calc(50vw - 590px));
+      color: var(--white);
+      background: var(--ink);
+    }
+
+    .formula-band .section-heading { margin-bottom: 30px; }
+    .formula-band .section-index { color: var(--gold); }
+
+    .formula-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .formula {
+      min-height: 135px;
+      padding: 18px 0 18px 18px;
+      border-left: 4px solid var(--coral);
+    }
+
+    .formula:nth-child(3n + 2) { border-color: var(--gold); }
+    .formula:nth-child(3n) { border-color: #58b5a9; }
+
+    .formula strong {
+      display: block;
+      margin-bottom: 9px;
+      color: #d7ece7;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+    }
+
+    .formula .equation {
+      margin-bottom: 6px;
+      font-family: "Baskerville", "Iowan Old Style", serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .formula small { color: #bdc9c6; }
+
+    .start-panel {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 28px;
+      align-items: end;
+      padding-top: 46px;
+    }
+
+    .start-copy h2 { margin-bottom: 8px; font-size: 2rem; }
+    .start-copy p { max-width: 680px; margin-bottom: 0; color: var(--muted); }
+
+    .student-field {
+      display: grid;
+      grid-template-columns: minmax(220px, 300px) auto;
+      gap: 10px;
+      align-items: end;
+    }
+
+    .field-group label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .field-group input,
+    .number-answer {
+      width: 100%;
+      min-height: 50px;
+      padding: 12px 14px;
+      color: var(--ink);
+      border: 2px solid var(--ink);
+      border-radius: 5px;
+      background: var(--white);
+    }
+
+    .primary-button,
+    .secondary-button,
+    .ghost-button,
+    .filter-button {
+      min-height: 50px;
+      padding: 11px 18px;
+      border: 2px solid transparent;
+      border-radius: 5px;
+      font-weight: 900;
+    }
+
+    .primary-button {
+      color: var(--white);
+      background: var(--coral);
+      border-color: var(--coral);
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+
+    .primary-button:hover { background: #b9412f; }
+
+    .secondary-button {
+      color: var(--white);
+      background: var(--teal);
+      border-color: var(--teal);
+    }
+
+    .ghost-button,
+    .filter-button {
+      color: var(--ink);
+      background: transparent;
+      border-color: var(--line);
+    }
+
+    .ghost-button:hover,
+    .filter-button:hover,
+    .filter-button.active {
+      border-color: var(--ink);
+      background: var(--white);
+    }
+
+    .quiz-app,
+    .results { display: none; }
+
+    .quiz-app.active,
+    .results.active { display: block; }
+
+    .quiz-app { min-height: 100vh; padding: 34px 0 64px; }
+
+    .quiz-topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      padding: 14px 0 16px;
+      background: rgba(247, 244, 236, 0.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    .topbar-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .progress-copy {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 8px;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .progress-track {
+      height: 9px;
+      overflow: hidden;
+      border-radius: 5px;
+      background: var(--paper-deep);
+    }
+
+    .progress-fill {
+      width: 0;
+      height: 100%;
+      background: linear-gradient(90deg, var(--teal), var(--gold), var(--coral));
+      transition: width 240ms ease;
+    }
+
+    .timer {
+      min-width: 92px;
+      color: var(--teal-dark);
+      font-family: Futura, "Avenir Next", sans-serif;
+      font-size: 1.05rem;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .quiz-layout {
+      display: grid;
+      grid-template-columns: 210px minmax(0, 760px);
+      gap: 54px;
+      justify-content: center;
+      padding-top: 42px;
+    }
+
+    .topic-rail {
+      align-self: start;
+      position: sticky;
+      top: 105px;
+    }
+
+    .topic-rail h2 {
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+    }
+
+    .topic-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .topic-list li {
+      position: relative;
+      padding: 0 0 18px 18px;
+      color: var(--muted);
+      border-left: 2px solid var(--line);
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .topic-list li::before {
+      content: "";
+      position: absolute;
+      top: 1px;
+      left: -6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--paper);
+      border: 2px solid var(--line);
+    }
+
+    .topic-list li.current { color: var(--ink); border-left-color: var(--teal); }
+    .topic-list li.current::before { background: var(--teal); border-color: var(--teal); }
+    .topic-list li.complete::before { background: var(--gold); border-color: var(--gold); }
+
+    .question-card {
+      min-height: 570px;
+      display: flex;
+      flex-direction: column;
+      padding: 30px;
+      border: 2px solid var(--ink);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .question-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .question-source { color: var(--blue); text-transform: none; }
+
+    .question-card h2 {
+      margin-bottom: 22px;
+      font-size: clamp(1.35rem, 3vw, 2rem);
+    }
+
+    .question-visual {
+      margin: 0 0 22px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      background: #fbfaf5;
+    }
+
+    .question-visual svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 210px;
+    }
+
+    .options {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    .option {
+      min-height: 68px;
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 10px;
+      align-items: center;
+      padding: 12px;
+      border: 2px solid var(--line);
+      border-radius: 5px;
+      background: var(--white);
+      transition: border-color 120ms ease, background 120ms ease, transform 120ms ease;
+      cursor: pointer;
+    }
+
+    .option:hover { border-color: var(--teal); transform: translateY(-1px); }
+    .option:has(input:checked) { border-color: var(--teal); background: #e6f3ef; }
+    .option input { position: absolute; opacity: 0; pointer-events: none; }
+
+    .option-letter {
+      width: 31px;
+      height: 31px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      font-weight: 900;
+    }
+
+    .option:has(input:checked) .option-letter {
+      color: var(--white);
+      background: var(--teal);
+      border-color: var(--teal);
+    }
+
+    .number-wrap { max-width: 430px; }
+    .number-wrap label { display: block; margin-bottom: 7px; font-weight: 800; }
+    .answer-hint { margin: 7px 0 0; color: var(--muted); font-size: 0.82rem; }
+
+    .question-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: auto;
+      padding-top: 26px;
+    }
+
+    .question-nav button:disabled { opacity: 0.38; cursor: not-allowed; }
+
+    .results { padding: 48px 0 80px; }
+
+    .results-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+      gap: 50px;
+      align-items: end;
+      padding-bottom: 38px;
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .results-hero h1 { margin-bottom: 12px; font-size: clamp(2.4rem, 7vw, 5.2rem); }
+    .results-hero .lede { margin-bottom: 0; }
+
+    .score-display {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 20px;
+    }
+
+    .score-number {
+      font-family: Futura, "Avenir Next", sans-serif;
+      font-size: clamp(3.2rem, 8vw, 6.4rem);
+      font-weight: 900;
+      line-height: 0.9;
+    }
+
+    .score-number span { color: var(--teal); }
+    .score-grade { padding-bottom: 8px; color: var(--coral); font-size: 1.15rem; font-weight: 900; }
+
+    .result-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      margin: 28px 0 42px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .stat {
+      padding: 18px;
+      background: var(--white);
+    }
+
+    .stat strong { display: block; font-size: 1.45rem; }
+    .stat span { color: var(--muted); font-size: 0.78rem; font-weight: 800; text-transform: uppercase; }
+    .stat.correct strong { color: var(--green); }
+    .stat.wrong strong { color: var(--red); }
+
+    .breakdown {
+      margin-bottom: 44px;
+    }
+
+    .breakdown h2,
+    .review-head h2 { font-size: 1.8rem; }
+
+    .breakdown-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px 26px;
+    }
+
+    .topic-score { padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+    .topic-score-head { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 6px; font-size: 0.86rem; font-weight: 800; }
+    .mini-track { height: 6px; background: var(--paper-deep); border-radius: 3px; overflow: hidden; }
+    .mini-fill { height: 100%; background: var(--blue); }
+
+    .review-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: end;
+      margin-bottom: 20px;
+    }
+
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; }
+    .filter-button { min-height: 38px; padding: 7px 12px; font-size: 0.82rem; }
+
+    .review-list { border-top: 1px solid var(--line); }
+
+    .review-item {
+      display: grid;
+      grid-template-columns: 54px minmax(0, 1fr);
+      gap: 18px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .review-status {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--white);
+      font-size: 1.25rem;
+      font-weight: 900;
+    }
+
+    .review-item.correct .review-status { background: var(--green); }
+    .review-item.wrong .review-status { background: var(--red); }
+    .review-item.unanswered .review-status { color: var(--ink); background: var(--gold); }
+
+    .review-topic { margin-bottom: 4px; color: var(--blue); font-size: 0.73rem; font-weight: 900; text-transform: uppercase; }
+    .review-question { margin-bottom: 12px; font-weight: 800; }
+
+    .answer-comparison {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .answer-box {
+      padding: 11px 13px;
+      border-left: 4px solid var(--line);
+      background: rgba(255, 254, 250, 0.72);
+    }
+
+    .answer-box strong { display: block; color: var(--muted); font-size: 0.72rem; text-transform: uppercase; }
+    .answer-box.correct-answer { border-left-color: var(--green); }
+    .answer-box.student-wrong { border-left-color: var(--red); }
+    .explanation { margin-bottom: 0; color: #45534f; font-size: 0.92rem; }
+
+    .result-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 34px;
+    }
+
+    .empty-review { padding: 34px 0; color: var(--muted); }
+
+    footer {
+      padding: 24px 0 36px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 920px) {
+      .intro-hero { grid-template-columns: 1fr; min-height: auto; }
+      .motion-scene { min-height: 280px; }
+      .motion-scene svg { min-height: 280px; }
+      .summary-grid, .formula-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .start-panel { grid-template-columns: 1fr; align-items: start; }
+      .student-field { grid-template-columns: minmax(0, 1fr) auto; }
+      .quiz-layout { grid-template-columns: 1fr; padding-top: 26px; }
+      .topic-rail { display: none; }
+      .results-hero { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .page-shell { width: min(100% - 20px, 1180px); }
+      .header-inner { min-height: 60px; }
+      .header-meta { display: none; }
+      .intro { padding-top: 28px; }
+      .intro-hero { gap: 28px; padding-bottom: 34px; }
+      h1 { font-size: 3rem; }
+      .section-heading { grid-template-columns: 1fr; gap: 6px; }
+      .summary-grid, .formula-grid, .breakdown-grid { grid-template-columns: 1fr; }
+      .summary-item { min-height: 0; }
+      .student-field { grid-template-columns: 1fr; }
+      .student-field .primary-button { width: 100%; }
+      .quiz-app { padding-top: 0; }
+      .topbar-row { grid-template-columns: 1fr auto; }
+      .question-card { min-height: 600px; padding: 20px 16px; }
+      .question-meta { display: block; }
+      .question-source { display: block; margin-top: 5px; }
+      .options { grid-template-columns: 1fr; }
+      .option { min-height: 60px; }
+      .question-nav { position: sticky; bottom: 0; margin-inline: -16px; padding: 14px 16px; background: var(--white); border-top: 1px solid var(--line); }
+      .question-nav button { flex: 1; padding-inline: 8px; }
+      .result-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .review-head { display: block; }
+      .filters { margin-top: 12px; }
+      .review-item { grid-template-columns: 40px minmax(0, 1fr); gap: 10px; }
+      .review-status { width: 36px; height: 36px; }
+      .answer-comparison { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
+
+    @media print {
+      body { background: #fff; }
+      .site-header, .intro, .quiz-app, .filters, .result-actions, footer { display: none !important; }
+      .results.active { display: block; padding: 0; }
+      .page-shell { width: 100%; }
+      .results-hero { grid-template-columns: 1fr 1fr; }
+      .review-item { break-inside: avoid; }
+      .review-list { font-size: 10pt; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="page-shell header-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">v</span>
+        <span>Motion Lab</span>
+      </div>
+      <div class="header-meta">Grade 7 Physics · Chapter 2</div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="intro" id="intro-screen">
+      <div class="page-shell">
+        <div class="intro-hero">
+          <div>
+            <p class="eyebrow">Revision guide + comprehensive quiz</p>
+            <h1>Motion <span>made visible.</span></h1>
+            <p class="lede">Review the complete chapter first, then test definitions, motion types, distance and displacement, speed, graphs, pendulums, mass and weight.</p>
+            <ul class="quiz-facts" aria-label="Quiz facts">
+              <li>48 questions</li>
+              <li>6 topic groups</li>
+              <li>Worked explanations</li>
+              <li>Complete result review</li>
+            </ul>
+          </div>
+          <div class="motion-scene" aria-label="Illustration of a bicycle moving along a curved path">
+            <svg viewBox="0 0 520 420" role="img" aria-labelledby="scene-title scene-desc">
+              <title id="scene-title">A bicycle demonstrating rolling and translatory motion</title>
+              <desc id="scene-desc">A bicycle travels on a curved path while its wheels rotate. A pendulum and orbit appear in the background.</desc>
+              <rect width="520" height="420" fill="#cfe8e1"/>
+              <circle cx="423" cy="76" r="46" fill="#e2a93b"/>
+              <circle cx="423" cy="76" r="69" fill="none" stroke="#172724" stroke-width="2" stroke-dasharray="7 8"/>
+              <circle cx="487" cy="102" r="9" fill="#2e5f91"/>
+              <path d="M40 324 C170 246 286 355 500 250" fill="none" stroke="#fffefa" stroke-width="64"/>
+              <path d="M40 324 C170 246 286 355 500 250" fill="none" stroke="#172724" stroke-width="3" stroke-dasharray="13 12"/>
+              <g transform="translate(160 216) rotate(-7)">
+                <circle cx="18" cy="75" r="44" fill="none" stroke="#172724" stroke-width="7"/>
+                <circle cx="149" cy="75" r="44" fill="none" stroke="#172724" stroke-width="7"/>
+                <circle cx="18" cy="75" r="5" fill="#d0503a"/>
+                <circle cx="149" cy="75" r="5" fill="#d0503a"/>
+                <path d="M18 75 L67 24 L100 75 L18 75 L61 75 L84 44 L149 75 M67 24 L60 8 M51 8 L74 8 M100 75 L113 27 M102 25 L124 25" fill="none" stroke="#116b60" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M16 19 A62 62 0 0 1 68 -5" fill="none" stroke="#d0503a" stroke-width="4"/>
+                <path d="M142 17 A62 62 0 0 1 187 60" fill="none" stroke="#d0503a" stroke-width="4"/>
+              </g>
+              <g transform="translate(64 50)">
+                <path d="M0 0 H112" stroke="#172724" stroke-width="6"/>
+                <path d="M56 0 V35" stroke="#172724" stroke-width="3"/>
+                <path d="M56 35 L25 121" stroke="#2e5f91" stroke-width="4"/>
+                <circle cx="25" cy="121" r="15" fill="#d0503a" stroke="#172724" stroke-width="3"/>
+                <path d="M6 106 A54 54 0 0 1 92 105" fill="none" stroke="#172724" stroke-width="2" stroke-dasharray="5 6"/>
+              </g>
+              <g fill="#172724" font-family="Avenir Next, sans-serif" font-size="13" font-weight="700">
+                <text x="308" y="380">translation →</text>
+                <text x="72" y="195">oscillation</text>
+                <text x="373" y="164">periodic orbit</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <section class="revision-band" aria-labelledby="summary-title">
+          <div class="section-heading">
+            <div class="section-index">01 · Chapter map</div>
+            <h2 id="summary-title">What you should know before starting</h2>
+          </div>
+          <div class="summary-grid">
+            <article class="summary-item">
+              <h3>Rest, motion and reference</h3>
+              <p>Motion is a change in position with respect to surroundings and time. Rest and motion are relative: the same object can be at rest for one observer and moving for another.</p>
+            </article>
+            <article class="summary-item">
+              <h3>Translatory motion</h3>
+              <p>All parts travel the same distance in the same time. A straight path is <strong>rectilinear</strong>; a curved path is <strong>curvilinear</strong>.</p>
+            </article>
+            <article class="summary-item">
+              <h3>Circular and rotatory</h3>
+              <p>In circular motion an object goes around a fixed point at constant radius. In rotatory motion a body spins about its own fixed axis.</p>
+            </article>
+            <article class="summary-item">
+              <h3>Oscillatory and vibratory</h3>
+              <p>Oscillatory motion is to-and-fro about a mean position. Vibratory motion is rapid, small-amplitude to-and-fro motion of part of a body.</p>
+            </article>
+            <article class="summary-item">
+              <h3>Repeating and irregular motion</h3>
+              <p>Periodic motion repeats after a fixed interval. Non-periodic motion does not. Random motion has no fixed path and changes direction suddenly.</p>
+            </article>
+            <article class="summary-item">
+              <h3>Multiple and rolling motion</h3>
+              <p>An object can have more than one motion. Rolling combines rotatory and translatory motion; Earth rotates on its axis while revolving around the Sun.</p>
+            </article>
+            <article class="summary-item">
+              <h3>Distance and displacement</h3>
+              <p>Distance is total path length and is a scalar. Displacement is the shortest straight-line change from start to finish, with direction, so it is a vector.</p>
+            </article>
+            <article class="summary-item">
+              <h3>Uniform and non-uniform</h3>
+              <p>Uniform motion covers equal distances in equal time intervals. Non-uniform motion covers unequal distances in equal intervals or equal distances in unequal intervals.</p>
+            </article>
+            <article class="summary-item">
+              <h3>Graphs, speed and velocity</h3>
+              <p>A straight sloping distance-time line means constant speed; a horizontal line means rest. Speed uses distance; velocity uses displacement and direction.</p>
+            </article>
+            <article class="summary-item">
+              <h3>Simple pendulum</h3>
+              <p>A bob suspended by a light string oscillates about its mean position. Its time period is the time taken for one complete oscillation.</p>
+            </article>
+            <article class="summary-item">
+              <h3>Mass and weight</h3>
+              <p>Mass is the amount of matter and remains constant. Weight is the gravitational force on that mass, so it changes when gravity changes.</p>
+            </article>
+            <article class="summary-item">
+              <h3>Exam habits</h3>
+              <ul>
+                <li>Convert all quantities to compatible units.</li>
+                <li>Write the formula before substitution.</li>
+                <li>Always include the final unit and direction when needed.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="formula-band" aria-labelledby="formula-title">
+          <div class="section-heading">
+            <div class="section-index">02 · Formula bank</div>
+            <h2 id="formula-title">Important formulas and quick rules</h2>
+          </div>
+          <div class="formula-grid">
+            <div class="formula">
+              <strong>Speed</strong>
+              <div class="equation">Speed = distance ÷ time</div>
+              <small>SI unit: metre per second (m/s)</small>
+            </div>
+            <div class="formula">
+              <strong>Distance</strong>
+              <div class="equation">Distance = speed × time</div>
+              <small>Use matching units throughout.</small>
+            </div>
+            <div class="formula">
+              <strong>Time</strong>
+              <div class="equation">Time = distance ÷ speed</div>
+              <small>SI unit: second (s)</small>
+            </div>
+            <div class="formula">
+              <strong>Average speed</strong>
+              <div class="equation">Total distance ÷ total time</div>
+              <small>Do not simply average separate speeds.</small>
+            </div>
+            <div class="formula">
+              <strong>Velocity</strong>
+              <div class="equation">Velocity = displacement ÷ time</div>
+              <small>State both magnitude and direction.</small>
+            </div>
+            <div class="formula">
+              <strong>Convert km/h to m/s</strong>
+              <div class="equation">Multiply by 5/18</div>
+              <small>Example: 108 km/h = 30 m/s</small>
+            </div>
+            <div class="formula">
+              <strong>Convert m/s to km/h</strong>
+              <div class="equation">Multiply by 18/5</div>
+              <small>Equivalent to multiplying by 3.6.</small>
+            </div>
+            <div class="formula">
+              <strong>Pendulum time period</strong>
+              <div class="equation">T = total time ÷ oscillations</div>
+              <small>Unit: second (s)</small>
+            </div>
+            <div class="formula">
+              <strong>Distance-time graph</strong>
+              <div class="equation">Speed = change in distance ÷ change in time</div>
+              <small>A steeper line represents greater speed.</small>
+            </div>
+            <div class="formula">
+              <strong>Distance rule</strong>
+              <div class="equation">Distance ≥ displacement</div>
+              <small>They are equal only for a straight, one-direction journey.</small>
+            </div>
+            <div class="formula">
+              <strong>Weight</strong>
+              <div class="equation">Weight = mass × gravity</div>
+              <small>Weight on the Moon is about 1/6 of Earth weight.</small>
+            </div>
+            <div class="formula">
+              <strong>One complete lap</strong>
+              <div class="equation">Displacement = 0</div>
+              <small>Start and final positions are the same.</small>
+            </div>
+          </div>
+        </section>
+
+        <section class="start-panel" aria-labelledby="start-title">
+          <div class="start-copy">
+            <p class="eyebrow">Ready to apply it?</p>
+            <h2 id="start-title">Take the Motion challenge</h2>
+            <p>Answer all 48 questions at your own pace. Your final report will show every correct, incorrect and unanswered response with the right answer and a short explanation.</p>
+          </div>
+          <div class="student-field">
+            <div class="field-group">
+              <label for="student-name">Student name (optional)</label>
+              <input id="student-name" type="text" maxlength="60" autocomplete="name" placeholder="Enter your name">
+            </div>
+            <button class="primary-button" id="start-button" type="button">Start quiz →</button>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="quiz-app" id="quiz-screen" aria-label="Motion chapter quiz">
+      <div class="quiz-topbar">
+        <div class="page-shell topbar-row">
+          <div>
+            <div class="progress-copy">
+              <span id="progress-label">Question 1 of 48</span>
+              <span id="answered-label">0 answered</span>
+            </div>
+            <div class="progress-track" role="progressbar" aria-valuemin="1" aria-valuemax="48" aria-valuenow="1" aria-label="Question position">
+              <div class="progress-fill" id="progress-fill"></div>
+            </div>
+          </div>
+          <div class="timer" id="timer" aria-label="Elapsed time">00:00</div>
+        </div>
+      </div>
+
+      <div class="page-shell quiz-layout">
+        <aside class="topic-rail" aria-label="Quiz topics">
+          <h2>Chapter route</h2>
+          <ol class="topic-list" id="topic-list"></ol>
+        </aside>
+        <div class="question-card" id="question-card" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="results" id="results-screen" aria-labelledby="results-title">
+      <div class="page-shell">
+        <div class="results-hero">
+          <div>
+            <p class="eyebrow">Quiz complete</p>
+            <h1 id="results-title">Your Motion report</h1>
+            <p class="lede" id="result-message"></p>
+          </div>
+          <div class="score-display" aria-label="Final score">
+            <div class="score-number"><span id="score-value">0</span>/48</div>
+            <div class="score-grade" id="score-grade"></div>
+          </div>
+        </div>
+
+        <div class="result-stats" id="result-stats"></div>
+
+        <section class="breakdown" aria-labelledby="breakdown-title">
+          <h2 id="breakdown-title">Topic breakdown</h2>
+          <div class="breakdown-grid" id="breakdown-grid"></div>
+        </section>
+
+        <section aria-labelledby="review-title">
+          <div class="review-head">
+            <div>
+              <p class="eyebrow">Answer review</p>
+              <h2 id="review-title">Right, wrong and why</h2>
+            </div>
+            <div class="filters" aria-label="Filter answer review">
+              <button class="filter-button active" type="button" data-filter="all">All 48</button>
+              <button class="filter-button" type="button" data-filter="wrong">Needs review</button>
+              <button class="filter-button" type="button" data-filter="correct">Correct</button>
+            </div>
+          </div>
+          <div class="review-list" id="review-list"></div>
+        </section>
+
+        <div class="result-actions">
+          <button class="primary-button" type="button" id="retry-button">Retake quiz</button>
+          <button class="secondary-button" type="button" id="print-button">Print result</button>
+          <button class="ghost-button" type="button" id="study-button">Review chapter summary</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="page-shell">Prepared from the Grade 7 Physics Motion chapter, class notes, worksheets, answer keys and 2024–2025 school question papers.</div>
+  </footer>
+
+  <script>
+    "use strict";
+
+    const questions = [
+      {
+        id: 1,
+        topic: "Foundations & Reference Frames",
+        source: "Motion.pdf · Chapter text",
+        type: "choice",
+        prompt: "Which statement gives the most complete definition of motion?",
+        options: [
+          "A force acting on an object",
+          "A change in an object's position with respect to its surroundings and time",
+          "The distance between two stationary objects",
+          "Any object that has mass"
+        ],
+        answer: 1,
+        explanation: "Motion is identified when an object's position changes relative to a reference or its surroundings as time passes."
+      },
+      {
+        id: 2,
+        topic: "Foundations & Reference Frames",
+        source: "Motion.pdf · Rest and motion",
+        type: "choice",
+        prompt: "An object is said to be at rest when it:",
+        options: [
+          "has no forces acting on it",
+          "does not change position with respect to its surroundings",
+          "has zero mass",
+          "moves at a constant speed"
+        ],
+        answer: 1,
+        explanation: "Rest means no change in position relative to the chosen surroundings or reference point."
+      },
+      {
+        id: 3,
+        topic: "Foundations & Reference Frames",
+        source: "2024 Term 1 · Q1(xiv)",
+        type: "choice",
+        prompt: "A student sitting in a moving bus is in motion with respect to the:",
+        options: ["bus seat", "bus driver", "road", "student sitting beside them"],
+        answer: 2,
+        visual: "bus",
+        explanation: "The student keeps the same position relative to the bus, driver and nearby passenger, but changes position relative to the road."
+      },
+      {
+        id: 4,
+        topic: "Foundations & Reference Frames",
+        source: "Motion worksheet · HOTS",
+        type: "choice",
+        prompt: "Two trains move side by side in the same direction at the same speed. A passenger in one train sees the other train as:",
+        options: ["at rest", "moving backward rapidly", "moving forward twice as fast", "having random motion"],
+        answer: 0,
+        explanation: "The trains do not change position relative to each other, so their relative speed is zero and each appears at rest to the other."
+      },
+      {
+        id: 5,
+        topic: "Foundations & Reference Frames",
+        source: "Motion worksheet · Absolute rest",
+        type: "choice",
+        prompt: "A book lies on a desk. Which statement is scientifically correct?",
+        options: [
+          "It is at absolute rest in the universe",
+          "It is at rest relative to the desk but moving relative to the Sun",
+          "It is moving relative to the desk",
+          "It cannot be described as either at rest or in motion"
+        ],
+        answer: 1,
+        explanation: "The book is at rest relative to the desk, but it moves with Earth as Earth rotates and revolves around the Sun. Rest and motion are relative."
+      },
+      {
+        id: 6,
+        topic: "Types of Motion",
+        source: "Class Notes Part 1 · Translatory motion",
+        type: "choice",
+        prompt: "In translatory motion:",
+        options: [
+          "only one part of the body moves",
+          "all parts of the body move the same distance in the same time",
+          "the body must move in a circle",
+          "the body's axis remains fixed"
+        ],
+        answer: 1,
+        explanation: "A body translates when all of its parts move through the same distance in the same interval of time."
+      },
+      {
+        id: 7,
+        topic: "Types of Motion",
+        source: "Motion.pdf · Rectilinear motion",
+        type: "choice",
+        prompt: "An apple falling vertically from a tree shows mainly:",
+        options: ["rectilinear motion", "circular motion", "random motion", "vibratory motion"],
+        answer: 0,
+        explanation: "The apple travels along an approximately straight vertical path, so its motion is rectilinear."
+      },
+      {
+        id: 8,
+        topic: "Types of Motion",
+        source: "2025 Annual · Q1(iii)",
+        type: "choice",
+        prompt: "A ball thrown at an angle follows a curved path through the air. This is:",
+        options: ["rectilinear motion", "curvilinear motion", "rotatory motion", "vibratory motion"],
+        answer: 1,
+        explanation: "The ball's path is curved, so it has curvilinear motion."
+      },
+      {
+        id: 9,
+        topic: "Types of Motion",
+        source: "Motion.pdf · Circular motion",
+        type: "choice",
+        prompt: "Which feature identifies circular motion?",
+        options: [
+          "The object moves in a straight line",
+          "The object remains at a constant distance from a fixed point",
+          "Every part of the object stays still",
+          "The motion never repeats"
+        ],
+        answer: 1,
+        explanation: "In circular motion the object follows a circular path while remaining at a constant radius from a fixed centre."
+      },
+      {
+        id: 10,
+        topic: "Types of Motion",
+        source: "2024 Term 1 · Q1(vi)",
+        type: "choice",
+        prompt: "The pulley over which a rope runs in a well has:",
+        options: ["linear motion", "rotatory motion", "vibratory motion", "random motion"],
+        answer: 1,
+        explanation: "The pulley spins about its own fixed axis, which is rotatory motion."
+      },
+      {
+        id: 11,
+        topic: "Types of Motion",
+        source: "Motion worksheet · Rotatory vs circular",
+        type: "choice",
+        prompt: "What best distinguishes rotatory motion from circular motion?",
+        options: [
+          "Rotatory motion is always random",
+          "In rotatory motion a body spins about its own axis; in circular motion it moves around an external fixed point",
+          "Circular motion is always in a straight line",
+          "There is no difference"
+        ],
+        answer: 1,
+        explanation: "A rotating body turns about its own axis. In circular motion an object travels around a fixed centre at constant radius."
+      },
+      {
+        id: 12,
+        topic: "Types of Motion",
+        source: "Motion.pdf · Oscillatory motion",
+        type: "choice",
+        prompt: "A playground swing moving to and fro about its middle position shows:",
+        options: ["oscillatory motion", "rectilinear motion only", "random motion", "rotatory motion"],
+        answer: 0,
+        explanation: "Oscillatory motion is repeated to-and-fro movement about a mean position."
+      },
+      {
+        id: 13,
+        topic: "Types of Motion",
+        source: "2024 UT1 · Q3(iii)",
+        type: "choice",
+        prompt: "Which is the best example of vibratory motion?",
+        options: ["a train on a straight track", "a plucked guitar string", "the Moon around Earth", "a car on a curved road"],
+        answer: 1,
+        explanation: "A guitar string has rapid, small-amplitude to-and-fro motion of part of the instrument, so it vibrates."
+      },
+      {
+        id: 14,
+        topic: "Types of Motion",
+        source: "2024 UT1 · Q1(iv)",
+        type: "choice",
+        prompt: "The motion of the minute hand of a clock is:",
+        options: ["random", "periodic", "translatory", "non-periodic"],
+        answer: 1,
+        explanation: "The minute hand repeats the same motion after a fixed interval of 60 minutes, so its motion is periodic."
+      },
+      {
+        id: 15,
+        topic: "Types of Motion",
+        source: "2024 Term 1 · Q3(i)",
+        type: "choice",
+        prompt: "Are all periodic motions oscillatory?",
+        options: [
+          "Yes, because every repeating motion moves to and fro",
+          "No; clock hands are periodic but do not move to and fro about a mean position",
+          "Yes, but only on Earth",
+          "No, because oscillatory motion never repeats"
+        ],
+        answer: 1,
+        explanation: "Oscillatory motion is to and fro about a mean position. Clock hands and planetary orbits repeat periodically without oscillating."
+      },
+      {
+        id: 16,
+        topic: "Types of Motion",
+        source: "Motion worksheet · Butterfly wings",
+        type: "choice",
+        prompt: "A butterfly's wings flutter to and fro without repeating after an exact fixed interval. The wing motion is:",
+        options: [
+          "oscillatory and non-periodic",
+          "rectilinear and periodic",
+          "rotatory and uniform",
+          "circular and periodic"
+        ],
+        answer: 0,
+        explanation: "The wings move to and fro, making the motion oscillatory, but the movement need not repeat at an exact fixed interval, so it can be non-periodic."
+      },
+      {
+        id: 17,
+        topic: "Types of Motion",
+        source: "2025 Annual · Q3(vii)",
+        type: "choice",
+        prompt: "Which example best shows random motion?",
+        options: ["a clock's second hand", "a butterfly flying around a garden", "a lift moving upward", "a ceiling fan at steady speed"],
+        answer: 1,
+        explanation: "A flying butterfly repeatedly changes direction and follows no fixed path, which is random motion."
+      },
+      {
+        id: 18,
+        topic: "Types of Motion",
+        source: "Class Notes Part 1 · Multiple motion",
+        type: "choice",
+        prompt: "A drill bit spins while being pushed forward into wood. It has:",
+        options: ["only rotatory motion", "only translatory motion", "multiple motion", "only random motion"],
+        answer: 2,
+        explanation: "The bit rotates about its axis and translates forward at the same time, so it has multiple motion."
+      },
+      {
+        id: 19,
+        topic: "Types of Motion",
+        source: "2025 Annual · Q8(i)(a)",
+        type: "choice",
+        prompt: "A bicycle wheel moving along a road demonstrates rolling motion because it combines:",
+        options: [
+          "oscillatory and random motion",
+          "rotatory and translatory motion",
+          "circular and vibratory motion",
+          "periodic and random motion"
+        ],
+        answer: 1,
+        visual: "rolling",
+        explanation: "The wheel spins about its axle while its axle moves forward. Rolling therefore combines rotation and translation."
+      },
+      {
+        id: 20,
+        topic: "Types of Motion",
+        source: "Class Notes Part 1 · Earth",
+        type: "choice",
+        prompt: "Why is Earth's motion described as multiple motion?",
+        options: [
+          "It only rotates once every 24 hours",
+          "It rotates on its axis and revolves around the Sun",
+          "It has no fixed path",
+          "It only moves to and fro"
+        ],
+        answer: 1,
+        explanation: "Earth has rotatory motion about its axis and periodic revolution around the Sun at the same time."
+      },
+      {
+        id: 21,
+        topic: "Distance & Displacement",
+        source: "Motion.pdf · Distance",
+        type: "choice",
+        prompt: "Distance is:",
+        options: [
+          "the shortest path with direction",
+          "the total length of the actual path travelled",
+          "always zero after a journey",
+          "measured only in kilometres"
+        ],
+        answer: 1,
+        explanation: "Distance measures the entire path covered, regardless of direction. It is a scalar quantity."
+      },
+      {
+        id: 22,
+        topic: "Distance & Displacement",
+        source: "Motion.pdf · Displacement",
+        type: "choice",
+        prompt: "Which statement about displacement is correct?",
+        options: [
+          "It is the total path length and has no direction",
+          "It is the shortest straight-line change from initial to final position, with direction",
+          "It is always greater than distance",
+          "It can never be zero"
+        ],
+        answer: 1,
+        explanation: "Displacement connects the initial and final positions by the shortest straight line and includes direction, making it a vector."
+      },
+      {
+        id: 23,
+        topic: "Distance & Displacement",
+        source: "2025 UT2 · Q1(i)",
+        type: "choice",
+        prompt: "Which relationship is always true for a journey?",
+        options: [
+          "distance < displacement",
+          "distance ≥ displacement",
+          "distance is always equal to displacement",
+          "distance is always zero"
+        ],
+        answer: 1,
+        explanation: "Displacement is the shortest possible separation between start and finish. The actual path cannot be shorter, so distance is greater than or equal to displacement."
+      },
+      {
+        id: 24,
+        topic: "Distance & Displacement",
+        source: "Class Notes Part 2 · Circular track",
+        type: "number",
+        prompt: "A runner completes 3 rounds of a circular track whose circumference is 150 m. What total distance does the runner cover?",
+        answer: 450,
+        tolerance: 0.01,
+        unit: "m",
+        correctDisplay: "450 m",
+        explanation: "Distance = number of rounds × circumference = 3 × 150 m = 450 m."
+      },
+      {
+        id: 25,
+        topic: "Distance & Displacement",
+        source: "Class Notes Part 2 · Circular track",
+        type: "number",
+        prompt: "After those 3 complete rounds, what is the runner's displacement?",
+        answer: 0,
+        tolerance: 0.01,
+        unit: "m",
+        correctDisplay: "0 m",
+        explanation: "The runner finishes at the starting point. Since initial and final positions are the same, displacement is 0 m."
+      },
+      {
+        id: 26,
+        topic: "Distance & Displacement",
+        source: "Class Notes Part 2 · Rectangular park",
+        type: "number",
+        prompt: "A child completes one full lap of a rectangular park 40 m long and 20 m wide. What distance is covered?",
+        answer: 120,
+        tolerance: 0.01,
+        unit: "m",
+        correctDisplay: "120 m",
+        explanation: "One lap equals the perimeter: 2 × (40 + 20) = 120 m."
+      },
+      {
+        id: 27,
+        topic: "Distance & Displacement",
+        source: "Motion.pdf · Worked path",
+        type: "number",
+        prompt: "An object follows the blue path A → B → C → D. What distance does it travel?",
+        answer: 11,
+        tolerance: 0.01,
+        unit: "km",
+        correctDisplay: "11 km",
+        visual: "path",
+        explanation: "Add every part of the actual path: 6 km + 3 km + 2 km = 11 km."
+      },
+      {
+        id: 28,
+        topic: "Distance & Displacement",
+        source: "Motion.pdf · Worked path",
+        type: "number",
+        prompt: "For the same journey, the straight red line from A to D is 5 km. What is the magnitude of displacement?",
+        answer: 5,
+        tolerance: 0.01,
+        unit: "km",
+        correctDisplay: "5 km toward D",
+        visual: "path",
+        explanation: "Displacement is the shortest straight-line change from the initial point A to the final point D: 5 km toward D."
+      },
+      {
+        id: 29,
+        topic: "Uniform Motion, Speed & Graphs",
+        source: "Motion.pdf · Uniform motion",
+        type: "choice",
+        prompt: "An object has uniform motion when it covers:",
+        options: [
+          "unequal distances in equal time intervals",
+          "equal distances in equal time intervals",
+          "equal distances in unequal time intervals",
+          "no distance at all"
+        ],
+        answer: 1,
+        explanation: "Equal distances in equal intervals indicate constant speed and therefore uniform motion."
+      },
+      {
+        id: 30,
+        topic: "Uniform Motion, Speed & Graphs",
+        source: "2025 Annual · Q7(i)(b)",
+        type: "choice",
+        prompt: "An object covers equal distances in unequal intervals of time. Its motion is:",
+        options: ["uniform", "non-uniform", "necessarily circular", "at rest"],
+        answer: 1,
+        explanation: "The speed changes because the same distance takes different amounts of time, so the motion is non-uniform."
+      },
+      {
+        id: 31,
+        topic: "Uniform Motion, Speed & Graphs",
+        source: "Motion.pdf · Table 2.1",
+        type: "choice",
+        prompt: "A car's positions are shown below. How should its motion be classified?",
+        options: ["uniform", "non-uniform", "random", "oscillatory"],
+        answer: 0,
+        visual: "uniformTable",
+        explanation: "The car covers 20 km in every 30-minute interval, so it has constant speed and uniform motion."
+      },
+      {
+        id: 32,
+        topic: "Uniform Motion, Speed & Graphs",
+        source: "Motion.pdf · Table 2.2",
+        type: "number",
+        prompt: "A car covers 20 km, 15 km, 25 km and 15 km in four consecutive 30-minute intervals. What is its average speed over the full journey?",
+        answer: 37.5,
+        tolerance: 0.01,
+        unit: "km/h",
+        correctDisplay: "37.5 km/h",
+        explanation: "Total distance = 75 km and total time = 2 h. Average speed = 75 ÷ 2 = 37.5 km/h."
+      },
+      {
+        id: 33,
+        topic: "Uniform Motion, Speed & Graphs",
+        source: "2025 UT1 · Q1(iii)",
+        type: "number",
+        prompt: "An athlete runs 200 m in 25 s. Calculate the athlete's speed.",
+        answer: 8,
+        tolerance: 0.01,
+        unit: "m/s",
+        correctDisplay: "8 m/s",
+        explanation: "Speed = distance ÷ time = 200 m ÷ 25 s = 8 m/s."
+      },
+      {
+        id: 34,
+        topic: "Uniform Motion, Speed & Graphs",
+        source: "2025 Term 1 · Q3(vi)",
+        type: "number",
+        prompt: "Ravi travels at 45 km/h for 4 hours. How far does he travel?",
+        answer: 180,
+        tolerance: 0.01,
+        unit: "km",
+        correctDisplay: "180 km",
+        explanation: "Distance = speed × time = 45 km/h × 4 h = 180 km."
+      },
+      {
+        id: 35,
+        topic: "Uniform Motion, Speed & Graphs",
+        source: "2025 UT2 · Q4(i)(a)",
+        type: "number",
+        prompt: "A train moving at 36 m/s takes 3.5 s to pass a child standing on a platform. What is the train's length?",
+        answer: 126,
+        tolerance: 0.01,
+        unit: "m",
+        correctDisplay: "126 m",
+        explanation: "The train travels one train-length past the child. Distance = speed × time = 36 × 3.5 = 126 m."
+      },
+      {
+        id: 36,
+        topic: "Uniform Motion, Speed & Graphs",
+        source: "2025 Annual · Q3(i)(b)",
+        type: "number",
+        prompt: "Convert 108 km/h to m/s.",
+        answer: 30,
+        tolerance: 0.01,
+        unit: "m/s",
+        correctDisplay: "30 m/s",
+        explanation: "To convert km/h to m/s, multiply by 5/18: 108 × 5/18 = 30 m/s."
+      },
+      {
+        id: 37,
+        topic: "Uniform Motion, Speed & Graphs",
+        source: "2025 UT1 · Q2(i)(a)",
+        type: "number",
+        prompt: "Convert 500 m/s to km/h.",
+        answer: 1800,
+        tolerance: 0.01,
+        unit: "km/h",
+        correctDisplay: "1800 km/h",
+        explanation: "To convert m/s to km/h, multiply by 18/5: 500 × 18/5 = 1800 km/h."
+      },
+      {
+        id: 38,
+        topic: "Uniform Motion, Speed & Graphs",
+        source: "2025 UT2 · Q5(i)",
+        type: "number",
+        prompt: "A car travels 6 km in 6 minutes, then 2 km in another 6 minutes. Find its average speed for the whole journey in m/s. Round to 2 decimal places.",
+        answer: 11.11,
+        tolerance: 0.02,
+        unit: "m/s",
+        correctDisplay: "11.11 m/s",
+        explanation: "Total distance = 8 km = 8000 m. Total time = 12 min = 720 s. Average speed = 8000 ÷ 720 = 11.11 m/s."
+      },
+      {
+        id: 39,
+        topic: "Uniform Motion, Speed & Graphs",
+        source: "Motion.pdf · Speed and velocity",
+        type: "choice",
+        prompt: "Which statement correctly compares speed and velocity?",
+        options: [
+          "Both require direction",
+          "Speed uses distance; velocity uses displacement and includes direction",
+          "Speed is a vector and velocity is a scalar",
+          "They always have different numerical values"
+        ],
+        answer: 1,
+        explanation: "Speed is distance per time and is scalar. Velocity is displacement per time and is a vector, so direction matters."
+      },
+      {
+        id: 40,
+        topic: "Uniform Motion, Speed & Graphs",
+        source: "2025 UT2 · Q1(iv)",
+        type: "choice",
+        prompt: "Which distance-time graph shows an object moving with constant non-zero speed?",
+        options: ["Graph A", "Graph B", "Graph C", "Graph D"],
+        answer: 1,
+        visual: "graphs",
+        explanation: "Graph B is a straight sloping line. Distance increases by equal amounts in equal times, which represents constant speed."
+      },
+      {
+        id: 41,
+        topic: "Uniform Motion, Speed & Graphs",
+        source: "Motion.pdf · Distance-time graph",
+        type: "choice",
+        prompt: "In the graph set, which graph represents an object at rest?",
+        options: ["Graph A", "Graph B", "Graph C", "Graph D"],
+        answer: 2,
+        visual: "graphs",
+        explanation: "Graph C is horizontal. Time passes while distance does not change, so the object is at rest."
+      },
+      {
+        id: 42,
+        topic: "Simple Pendulum",
+        source: "Motion.pdf · Simple pendulum",
+        type: "choice",
+        prompt: "Starting at the left extreme A, which path is one complete oscillation of a pendulum?",
+        options: ["A → O", "A → O → B", "A → O → B → O → A", "A → B only"],
+        answer: 2,
+        visual: "pendulum",
+        explanation: "One complete oscillation returns the bob to its starting position after visiting both extremes: A → O → B → O → A."
+      },
+      {
+        id: 43,
+        topic: "Simple Pendulum",
+        source: "Motion.pdf · Time period",
+        type: "choice",
+        prompt: "The time period of a simple pendulum is the time taken for:",
+        options: ["half an oscillation", "one complete oscillation", "ten oscillations only", "the bob to stop forever"],
+        answer: 1,
+        explanation: "The time period, T, is defined as the time for one complete oscillation. Its SI unit is the second."
+      },
+      {
+        id: 44,
+        topic: "Simple Pendulum",
+        source: "Motion.pdf · Pendulum activity",
+        type: "number",
+        prompt: "A pendulum completes 20 oscillations in 40 seconds. Calculate its time period.",
+        answer: 2,
+        tolerance: 0.01,
+        unit: "s",
+        correctDisplay: "2 s",
+        explanation: "Time period = total time ÷ number of oscillations = 40 s ÷ 20 = 2 s."
+      },
+      {
+        id: 45,
+        topic: "Simple Pendulum",
+        source: "2024 Annual · Q4(ii)",
+        type: "choice",
+        prompt: "At which position does a swinging pendulum bob have maximum speed and maximum kinetic energy?",
+        options: ["at either extreme position", "at the mean position", "only at the left extreme", "its speed is the same everywhere"],
+        answer: 1,
+        visual: "pendulum",
+        explanation: "At the mean position the bob is lowest and moving fastest, so kinetic energy is maximum. At the extremes its speed is momentarily zero and potential energy is maximum."
+      },
+      {
+        id: 46,
+        topic: "Mass & Weight",
+        source: "Class Notes Part 2 · Mass and weight",
+        type: "choice",
+        prompt: "An astronaut has a mass of 70 kg on Earth. What is the astronaut's mass on the Moon?",
+        options: ["about 11.7 kg", "70 kg", "420 kg", "0 kg"],
+        answer: 1,
+        explanation: "Mass is the amount of matter and does not depend on gravity, so it remains 70 kg on Earth and on the Moon."
+      },
+      {
+        id: 47,
+        topic: "Mass & Weight",
+        source: "Class Notes Part 2 · Moon gravity",
+        type: "choice",
+        prompt: "Compared with weight on Earth, an object's weight on the Moon is approximately:",
+        options: ["the same", "six times as much", "one-sixth as much", "zero in every case"],
+        answer: 2,
+        explanation: "The Moon's gravitational pull is about one-sixth of Earth's, so an object's weight is about one-sixth while its mass stays unchanged."
+      },
+      {
+        id: 48,
+        topic: "Mass & Weight",
+        source: "Class Notes Part 2 · Measuring instruments",
+        type: "choice",
+        prompt: "Which pairing is correct?",
+        options: [
+          "Beam balance measures weight; spring balance measures mass",
+          "Both balances measure only time",
+          "Beam balance measures mass; spring balance measures weight",
+          "Both balances always give identical readings on Earth and Moon"
+        ],
+        answer: 2,
+        explanation: "A beam balance compares masses. A spring balance measures gravitational force, or weight, so its reading changes when gravity changes."
+      }
+    ];
+
+    const topicOrder = [
+      "Foundations & Reference Frames",
+      "Types of Motion",
+      "Distance & Displacement",
+      "Uniform Motion, Speed & Graphs",
+      "Simple Pendulum",
+      "Mass & Weight"
+    ];
+
+    const state = {
+      current: 0,
+      answers: Array(questions.length).fill(null),
+      startedAt: null,
+      elapsedSeconds: 0,
+      timerId: null,
+      results: [],
+      filter: "all"
+    };
+
+    const introScreen = document.getElementById("intro-screen");
+    const quizScreen = document.getElementById("quiz-screen");
+    const resultsScreen = document.getElementById("results-screen");
+    const questionCard = document.getElementById("question-card");
+    const progressLabel = document.getElementById("progress-label");
+    const answeredLabel = document.getElementById("answered-label");
+    const progressFill = document.getElementById("progress-fill");
+    const progressTrack = document.querySelector(".progress-track");
+    const timer = document.getElementById("timer");
+    const topicList = document.getElementById("topic-list");
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function visualFor(name) {
+      const visuals = {
+        bus: `
+          <svg viewBox="0 0 640 180" role="img" aria-label="Passenger in a bus moving relative to the road">
+            <rect x="80" y="36" width="370" height="92" rx="12" fill="#e7b84e" stroke="#172724" stroke-width="4"/>
+            <path d="M450 60h55l45 40v28H450z" fill="#e7b84e" stroke="#172724" stroke-width="4"/>
+            <rect x="110" y="54" width="72" height="45" fill="#cfe8e1" stroke="#172724" stroke-width="3"/>
+            <rect x="200" y="54" width="72" height="45" fill="#cfe8e1" stroke="#172724" stroke-width="3"/>
+            <circle cx="215" cy="72" r="9" fill="#d0503a"/><path d="M215 81v18" stroke="#172724" stroke-width="4"/>
+            <circle cx="155" cy="133" r="25" fill="#172724"/><circle cx="155" cy="133" r="10" fill="#f7f4ec"/>
+            <circle cx="485" cy="133" r="25" fill="#172724"/><circle cx="485" cy="133" r="10" fill="#f7f4ec"/>
+            <path d="M40 159h560" stroke="#2e5f91" stroke-width="5" stroke-dasharray="22 14"/>
+            <path d="M470 22h100" stroke="#d0503a" stroke-width="5"/><path d="m570 22-18-11v22z" fill="#d0503a"/>
+            <g fill="#172724" font-family="Avenir Next, sans-serif" font-size="14" font-weight="700"><text x="193" y="26">at rest relative to bus</text><text x="441" y="178">moving relative to road</text></g>
+          </svg>`,
+        rolling: `
+          <svg viewBox="0 0 640 190" role="img" aria-label="A wheel rotating while translating forward">
+            <circle cx="210" cy="99" r="67" fill="#cfe8e1" stroke="#172724" stroke-width="7"/>
+            <circle cx="210" cy="99" r="9" fill="#d0503a"/>
+            <path d="M210 32v134M143 99h134M163 52l94 94M257 52l-94 94" stroke="#172724" stroke-width="3"/>
+            <path d="M140 23A94 94 0 0 1 294 77" fill="none" stroke="#d0503a" stroke-width="6"/><path d="m294 77-2-24-20 13z" fill="#d0503a"/>
+            <path d="M315 99h210" stroke="#116b60" stroke-width="7"/><path d="m525 99-23-14v28z" fill="#116b60"/>
+            <path d="M55 170h530" stroke="#2e5f91" stroke-width="5"/>
+            <g fill="#172724" font-family="Avenir Next, sans-serif" font-size="16" font-weight="800"><text x="72" y="24">rotation</text><text x="366" y="82">translation</text></g>
+          </svg>`,
+        path: `
+          <svg viewBox="0 0 640 230" role="img" aria-label="Path from A to B to C to D totalling 11 kilometres and direct displacement of 5 kilometres">
+            <defs><marker id="arrowBlue" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#2e5f91"/></marker><marker id="arrowRed" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#d0503a"/></marker></defs>
+            <path d="M65 184H320V70H505" fill="none" stroke="#2e5f91" stroke-width="7" marker-end="url(#arrowBlue)"/>
+            <path d="M65 184L505 70" fill="none" stroke="#d0503a" stroke-width="5" stroke-dasharray="12 10" marker-end="url(#arrowRed)"/>
+            <g fill="#fffefa" stroke="#172724" stroke-width="3"><circle cx="65" cy="184" r="18"/><circle cx="320" cy="184" r="18"/><circle cx="320" cy="70" r="18"/><circle cx="505" cy="70" r="18"/></g>
+            <g fill="#172724" font-family="Avenir Next, sans-serif" font-size="16" font-weight="900" text-anchor="middle"><text x="65" y="190">A</text><text x="320" y="190">B</text><text x="320" y="76">C</text><text x="505" y="76">D</text></g>
+            <g fill="#172724" font-family="Avenir Next, sans-serif" font-size="15" font-weight="800"><text x="175" y="210">6 km</text><text x="332" y="133">3 km</text><text x="400" y="57">2 km</text><text x="263" y="106" fill="#d0503a">5 km displacement</text></g>
+          </svg>`,
+        uniformTable: `
+          <svg viewBox="0 0 640 210" role="img" aria-label="Table showing a car covering 20 kilometres every 30 minutes">
+            <rect x="45" y="22" width="550" height="165" fill="#fffefa" stroke="#172724" stroke-width="3"/>
+            <path d="M45 63h550M45 104h550M45 145h550M182 22v165M320 22v165M458 22v165" stroke="#c9c3b7" stroke-width="2"/>
+            <rect x="45" y="22" width="550" height="41" fill="#cfe8e1"/>
+            <g fill="#172724" font-family="Avenir Next, sans-serif" font-size="14" font-weight="800" text-anchor="middle"><text x="113" y="48">Time</text><text x="251" y="48">8:00</text><text x="389" y="48">8:30</text><text x="526" y="48">9:00</text><text x="113" y="89">Position</text><text x="251" y="89">0 km</text><text x="389" y="89">20 km</text><text x="526" y="89">40 km</text><text x="113" y="130">Interval</text><text x="251" y="130">—</text><text x="389" y="130">30 min</text><text x="526" y="130">30 min</text><text x="113" y="171">Distance</text><text x="251" y="171">—</text><text x="389" y="171">20 km</text><text x="526" y="171">20 km</text></g>
+          </svg>`,
+        graphs: `
+          <svg viewBox="0 0 700 245" role="img" aria-label="Four distance-time graphs labelled A through D">
+            <g font-family="Avenir Next, sans-serif" font-size="15" font-weight="900" fill="#172724">
+              <g transform="translate(30 20)"><path d="M25 5v155h125M25 155Q55 150 75 116T145 25" fill="none" stroke="#172724" stroke-width="3"/><text x="80" y="190">A</text></g>
+              <g transform="translate(205 20)"><path d="M25 5v155h125M25 155L145 25" fill="none" stroke="#172724" stroke-width="3"/><path d="M25 155L145 25" stroke="#116b60" stroke-width="6"/><text x="80" y="190">B</text></g>
+              <g transform="translate(380 20)"><path d="M25 5v155h125M25 82H145" fill="none" stroke="#172724" stroke-width="3"/><path d="M25 82H145" stroke="#e2a93b" stroke-width="6"/><text x="80" y="190">C</text></g>
+              <g transform="translate(555 20)"><path d="M25 5v155h125M25 155L60 120L90 126L116 65L145 45" fill="none" stroke="#172724" stroke-width="3"/><path d="M25 155L60 120L90 126L116 65L145 45" stroke="#d0503a" stroke-width="6"/><text x="80" y="190">D</text></g>
+              <text x="12" y="135" transform="rotate(-90 12 135)" font-size="12">distance</text><text x="325" y="237" font-size="12">time →</text>
+            </g>
+          </svg>`,
+        pendulum: `
+          <svg viewBox="0 0 640 235" role="img" aria-label="Pendulum with left extreme A, mean position O and right extreme B">
+            <path d="M205 25h230" stroke="#172724" stroke-width="8"/>
+            <circle cx="320" cy="29" r="8" fill="#172724"/>
+            <path d="M320 29L210 180M320 29v187M320 29L430 180" stroke="#c9c3b7" stroke-width="4" stroke-dasharray="8 7"/>
+            <path d="M210 180A184 184 0 0 0 430 180" fill="none" stroke="#2e5f91" stroke-width="4"/>
+            <circle cx="210" cy="180" r="20" fill="#d0503a" stroke="#172724" stroke-width="3"/>
+            <circle cx="320" cy="216" r="20" fill="#e2a93b" stroke="#172724" stroke-width="3"/>
+            <circle cx="430" cy="180" r="20" fill="#116b60" stroke="#172724" stroke-width="3"/>
+            <g fill="#172724" font-family="Avenir Next, sans-serif" font-size="16" font-weight="900" text-anchor="middle"><text x="210" y="218">A · extreme</text><text x="320" y="190">O · mean</text><text x="430" y="218">B · extreme</text></g>
+          </svg>`
+      };
+      return visuals[name] || "";
+    }
+
+    function renderTopicRail() {
+      const currentTopic = questions[state.current].topic;
+      topicList.innerHTML = topicOrder.map(topic => {
+        const topicQuestions = questions.filter(question => question.topic === topic);
+        const topicIndexes = topicQuestions.map(question => questions.indexOf(question));
+        const answeredCount = topicIndexes.filter(index => state.answers[index] !== null && state.answers[index] !== "").length;
+        const status = topic === currentTopic ? "current" : answeredCount === topicQuestions.length ? "complete" : "";
+        return `<li class="${status}">${escapeHtml(topic)}<br><small>${answeredCount}/${topicQuestions.length} answered</small></li>`;
+      }).join("");
+    }
+
+    function renderQuestion() {
+      const question = questions[state.current];
+      const selectedAnswer = state.answers[state.current];
+      const visual = question.visual ? `<div class="question-visual">${visualFor(question.visual)}</div>` : "";
+      let answerControl = "";
+
+      if (question.type === "choice") {
+        answerControl = `
+          <fieldset class="options">
+            <legend class="skip-link">Choose one answer</legend>
+            ${question.options.map((option, index) => `
+              <label class="option">
+                <input type="radio" name="question-${question.id}" value="${index}" ${selectedAnswer === index ? "checked" : ""}>
+                <span class="option-letter">${String.fromCharCode(65 + index)}</span>
+                <span>${escapeHtml(option)}</span>
+              </label>
+            `).join("")}
+          </fieldset>`;
+      } else {
+        answerControl = `
+          <div class="number-wrap">
+            <label for="number-answer-${question.id}">Your numerical answer</label>
+            <input class="number-answer" id="number-answer-${question.id}" type="text" inputmode="decimal" autocomplete="off" value="${selectedAnswer === null ? "" : escapeHtml(selectedAnswer)}" placeholder="Enter the value">
+            <p class="answer-hint">Unit expected: ${escapeHtml(question.unit)}. You may enter the number with or without the unit.</p>
+          </div>`;
+      }
+
+      questionCard.innerHTML = `
+        <div class="question-meta">
+          <span>${escapeHtml(question.topic)} · Question ${question.id}</span>
+          <span class="question-source">Based on: ${escapeHtml(question.source)}</span>
+        </div>
+        <h2>${question.prompt}</h2>
+        ${visual}
+        ${answerControl}
+        <div class="question-nav">
+          <button class="ghost-button" type="button" id="previous-button" ${state.current === 0 ? "disabled" : ""}>← Previous</button>
+          <button class="secondary-button" type="button" id="next-button">${state.current === questions.length - 1 ? "Submit quiz" : "Next →"}</button>
+        </div>`;
+
+      if (question.type === "choice") {
+        questionCard.querySelectorAll('input[type="radio"]').forEach(input => {
+          input.addEventListener("change", event => {
+            state.answers[state.current] = Number(event.target.value);
+            updateProgress();
+            renderTopicRail();
+          });
+        });
+      } else {
+        const numberInput = questionCard.querySelector(".number-answer");
+        numberInput.addEventListener("input", event => {
+          state.answers[state.current] = event.target.value;
+          updateProgress();
+          renderTopicRail();
+        });
+        numberInput.addEventListener("keydown", event => {
+          if (event.key === "Enter") goNext();
+        });
+      }
+
+      document.getElementById("previous-button").addEventListener("click", () => navigate(-1));
+      document.getElementById("next-button").addEventListener("click", goNext);
+      updateProgress();
+      renderTopicRail();
+      questionCard.focus({ preventScroll: true });
+    }
+
+    function updateProgress() {
+      const answered = state.answers.filter(answer => answer !== null && answer !== "").length;
+      const viewProgress = ((state.current + 1) / questions.length) * 100;
+      progressLabel.textContent = `Question ${state.current + 1} of ${questions.length}`;
+      answeredLabel.textContent = `${answered} answered`;
+      progressFill.style.width = `${viewProgress}%`;
+      progressTrack.setAttribute("aria-valuenow", String(state.current + 1));
+    }
+
+    function navigate(direction) {
+      state.current = Math.max(0, Math.min(questions.length - 1, state.current + direction));
+      renderQuestion();
+      window.scrollTo({ top: quizScreen.offsetTop, behavior: "smooth" });
+    }
+
+    function goNext() {
+      if (state.current === questions.length - 1) {
+        submitQuiz();
+      } else {
+        navigate(1);
+      }
+    }
+
+    function startQuiz() {
+      introScreen.style.display = "none";
+      resultsScreen.classList.remove("active");
+      quizScreen.classList.add("active");
+      state.startedAt = Date.now();
+      state.elapsedSeconds = 0;
+      clearInterval(state.timerId);
+      state.timerId = setInterval(updateTimer, 1000);
+      updateTimer();
+      renderQuestion();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function updateTimer() {
+      if (state.startedAt) state.elapsedSeconds = Math.floor((Date.now() - state.startedAt) / 1000);
+      const minutes = Math.floor(state.elapsedSeconds / 60);
+      const seconds = state.elapsedSeconds % 60;
+      timer.textContent = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+    }
+
+    function parseNumber(value) {
+      if (value === null || value === "") return Number.NaN;
+      const match = String(value).replaceAll(",", "").match(/-?\d+(?:\.\d+)?/);
+      return match ? Number(match[0]) : Number.NaN;
+    }
+
+    function isCorrect(question, answer) {
+      if (answer === null || answer === "") return false;
+      if (question.type === "choice") return answer === question.answer;
+      const numericAnswer = parseNumber(answer);
+      return Number.isFinite(numericAnswer) && Math.abs(numericAnswer - question.answer) <= question.tolerance;
+    }
+
+    function answerText(question, answer) {
+      if (answer === null || answer === "") return "Not answered";
+      if (question.type === "choice") return question.options[answer] || "Not answered";
+      return String(answer);
+    }
+
+    function correctAnswerText(question) {
+      return question.type === "choice" ? question.options[question.answer] : question.correctDisplay;
+    }
+
+    function submitQuiz() {
+      const unanswered = state.answers.filter(answer => answer === null || answer === "").length;
+      if (unanswered > 0 && !window.confirm(`${unanswered} question${unanswered === 1 ? " is" : "s are"} unanswered. Submit anyway?`)) return;
+
+      clearInterval(state.timerId);
+      state.results = questions.map((question, index) => {
+        const answer = state.answers[index];
+        return {
+          question,
+          answer,
+          unanswered: answer === null || answer === "",
+          correct: isCorrect(question, answer)
+        };
+      });
+
+      quizScreen.classList.remove("active");
+      resultsScreen.classList.add("active");
+      renderResults();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function gradeMessage(percentage) {
+      if (percentage >= 90) return ["Excellent command", "You can explain and apply the chapter with confidence."];
+      if (percentage >= 75) return ["Strong understanding", "Review the marked responses to close the remaining gaps."];
+      if (percentage >= 60) return ["Developing well", "Revisit the weaker topic groups, then retake the quiz."];
+      if (percentage >= 40) return ["More revision needed", "Use the worked explanations and chapter map before trying again."];
+      return ["Start with the foundations", "Review the chapter summary carefully and build one topic at a time."];
+    }
+
+    function formatTime(totalSeconds) {
+      const minutes = Math.floor(totalSeconds / 60);
+      const seconds = totalSeconds % 60;
+      return `${minutes}m ${seconds}s`;
+    }
+
+    function renderResults() {
+      const correct = state.results.filter(result => result.correct).length;
+      const unanswered = state.results.filter(result => result.unanswered).length;
+      const wrong = questions.length - correct - unanswered;
+      const percentage = Math.round((correct / questions.length) * 100);
+      const [grade, message] = gradeMessage(percentage);
+      const studentName = document.getElementById("student-name").value.trim();
+
+      document.getElementById("score-value").textContent = String(correct);
+      document.getElementById("score-grade").textContent = `${percentage}% · ${grade}`;
+      document.getElementById("result-message").textContent = `${studentName ? `${studentName}, ${message.charAt(0).toLowerCase()}${message.slice(1)}` : message} Every response is reviewed below.`;
+      document.getElementById("result-stats").innerHTML = `
+        <div class="stat correct"><strong>${correct}</strong><span>Correct</span></div>
+        <div class="stat wrong"><strong>${wrong}</strong><span>Incorrect</span></div>
+        <div class="stat"><strong>${unanswered}</strong><span>Unanswered</span></div>
+        <div class="stat"><strong>${formatTime(state.elapsedSeconds)}</strong><span>Time taken</span></div>`;
+
+      document.getElementById("breakdown-grid").innerHTML = topicOrder.map(topic => {
+        const topicResults = state.results.filter(result => result.question.topic === topic);
+        const topicCorrect = topicResults.filter(result => result.correct).length;
+        const topicPercentage = Math.round((topicCorrect / topicResults.length) * 100);
+        return `
+          <div class="topic-score">
+            <div class="topic-score-head"><span>${escapeHtml(topic)}</span><span>${topicCorrect}/${topicResults.length}</span></div>
+            <div class="mini-track" role="progressbar" aria-label="${escapeHtml(topic)} score" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${topicPercentage}"><div class="mini-fill" style="width:${topicPercentage}%"></div></div>
+          </div>`;
+      }).join("");
+
+      state.filter = "all";
+      document.querySelectorAll(".filter-button").forEach(button => button.classList.toggle("active", button.dataset.filter === "all"));
+      renderReview();
+    }
+
+    function renderReview() {
+      const filteredResults = state.results.filter(result => {
+        if (state.filter === "correct") return result.correct;
+        if (state.filter === "wrong") return !result.correct;
+        return true;
+      });
+
+      const reviewList = document.getElementById("review-list");
+      if (filteredResults.length === 0) {
+        reviewList.innerHTML = `<p class="empty-review">No responses match this filter.</p>`;
+        return;
+      }
+
+      reviewList.innerHTML = filteredResults.map(result => {
+        const status = result.correct ? "correct" : result.unanswered ? "unanswered" : "wrong";
+        const statusSymbol = result.correct ? "✓" : result.unanswered ? "?" : "×";
+        const statusLabel = result.correct ? "Correct" : result.unanswered ? "Unanswered" : "Incorrect";
+        return `
+          <article class="review-item ${status}">
+            <div class="review-status" aria-label="${statusLabel}">${statusSymbol}</div>
+            <div>
+              <div class="review-topic">Question ${result.question.id} · ${escapeHtml(result.question.topic)} · ${statusLabel}</div>
+              <div class="review-question">${result.question.prompt}</div>
+              <div class="answer-comparison">
+                <div class="answer-box ${result.correct ? "" : "student-wrong"}"><strong>Your answer</strong>${escapeHtml(answerText(result.question, result.answer))}</div>
+                <div class="answer-box correct-answer"><strong>Correct answer</strong>${escapeHtml(correctAnswerText(result.question))}</div>
+              </div>
+              <p class="explanation"><strong>Why:</strong> ${escapeHtml(result.question.explanation)}</p>
+            </div>
+          </article>`;
+      }).join("");
+    }
+
+    function resetQuiz() {
+      state.current = 0;
+      state.answers = Array(questions.length).fill(null);
+      state.results = [];
+      resultsScreen.classList.remove("active");
+      startQuiz();
+    }
+
+    document.getElementById("start-button").addEventListener("click", startQuiz);
+    document.getElementById("retry-button").addEventListener("click", resetQuiz);
+    document.getElementById("print-button").addEventListener("click", () => window.print());
+    document.getElementById("study-button").addEventListener("click", () => {
+      state.current = 0;
+      state.answers = Array(questions.length).fill(null);
+      state.results = [];
+      resultsScreen.classList.remove("active");
+      introScreen.style.display = "block";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    document.querySelectorAll(".filter-button").forEach(button => {
+      button.addEventListener("click", () => {
+        state.filter = button.dataset.filter;
+        document.querySelectorAll(".filter-button").forEach(filterButton => filterButton.classList.toggle("active", filterButton === button));
+        renderReview();
+      });
+    });
+  </script>
+</body>
+</html>
